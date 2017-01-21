@@ -5,18 +5,25 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <permission
+        android:name="com.youngindia.jobportal.GCM.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.youngindia.jobportal.GCM.permission.C2D_MESSAGE" />
 
     <application
         android:name=".ui.app.AppController"
         android:allowBackup="true"
-        android:icon="@drawable/app_icon"
+        android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.SplashActivity"
+        <activity
+            android:name=".ui.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,87 +31,168 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.MessageSendActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.LoginUser_Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.Employee_RegistrationActivity"
-            android:screenOrientation="portrait"/>
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.example.gcm" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".ui.AlarmReceiver"
+            android:process=":remote" />
+        <!--
+             FirebaseInstanceIdService performs security checks at runtime,
+              no need for explicit permissions despite exported="true"
+        -->
+
+        <service
+            android:name=".GCM.MyGcmListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".GCM.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".GCM.RegistrationIntentService"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.MessageSendActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GCM.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.LoginUser_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.Employee_RegistrationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".ui.Employee_HomeActivity"
             android:label="@string/title_activity_employee__home"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.User_jobdetails"
-            android:parentActivityName=".ui.Employee_HomeActivity"
-            android:screenOrientation="portrait"/>
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.Search_Activity"
             android:label="@string/title_activity_search_"
-            android:theme="@style/AppTheme"
+            android:parentActivityName=".ui.Employee_HomeActivity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".ui.Company_Base"/>
-
-
-
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.Search_Result"
             android:label="@string/title_activity_search__result"
-            android:theme="@style/AppTheme"
+            android:parentActivityName=".ui.Search_Activity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".ui.Search_Activity"/>
-
-
-
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.Company_Base"
             android:label="@string/title_activity_company__base"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.App_Faq"
             android:label="@string/title_activity_app__faq"
-            android:theme="@style/AppTheme"
+            android:parentActivityName=".ui.Employee_HomeActivity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".ui.Employee_HomeActivity"/>
-
-
-
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.CompanyDetail"
             android:label="@string/title_activity_app__faq"
-            android:theme="@style/AppTheme"
+            android:parentActivityName=".ui.Company_Base"
             android:screenOrientation="portrait"
-            android:parentActivityName=".ui.Company_Base"/>
-
-
-
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.Company_candidatelist"
             android:label="@string/title_activity_company_candidatelist"
-            android:theme="@style/AppTheme"
+            android:parentActivityName=".ui.Company_Base"
             android:screenOrientation="portrait"
-            android:parentActivityName=".ui.Company_Base"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.Details_Page"
             android:label="@string/title_activity_details__page"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.DailyWagesRegstr"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.DailyWagesRegstr"
             android:parentActivityName=".ui.LoginUser_Activity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".ui.Search_list_Activity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.DailyWagers_Search"
+            android:parentActivityName=".ui.DailyWagesRegstr"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".ui.Main_Activity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.Franchise_Activity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".ui.Franchise_Activity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.Company_RegistrationActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"/>
-
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.UserRegistration"
+            android:label="@string/title_activity_user_registration"
+            android:parentActivityName=".ui.LoginUser_Activity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".ui.Company_registration" />
+        <activity
+            android:name=".ui.FullScreen_resume"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_full_screen_resume"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".SearchCompany"
+            android:parentActivityName=".ui.Company_Base" />
+        <activity
+            android:name=".SearchCompany_result"
+            android:parentActivityName=".SearchCompany" />
+        <activity android:name=".ui.OTPActivity" />
+        <activity
+            android:name=".ui.DetailsPage_Apply"
+            android:parentActivityName=".ui.Search_Result" />
+        <activity
+            android:name=".ui.FranchiseHome_Activity"
+            android:parentActivityName=".ui.LoginUser_Activity" />
+        <activity
+            android:name=".ui.Franchiseuser"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.AppliedJobs"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.DetailsPage_Company"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.CompanyShortlisted"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.PayMentGateWay" />
+        <activity
+            android:name=".ui.CompanyPostedjobslist"
+            android:screenOrientation="portrait" />
+        <activity android:name=".CompanylogoChange" />
+        <activity android:name=".ui.Employee_HomeActivity_ChangePassword" />
+        <activity android:name=".ui.BannerActivity" />
+        <activity android:name=".ui.CheckingEmailActivity"></activity>
     </application>
 
 </manifest>

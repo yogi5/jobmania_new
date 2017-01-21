@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jobmania.iml" filepath="$PROJECT_DIR$/jobmania.iml" />
       <module fileurl="file://$PROJECT_DIR$/jobmania_new.iml" filepath="$PROJECT_DIR$/jobmania_new.iml" />
     </modules>
   </component>

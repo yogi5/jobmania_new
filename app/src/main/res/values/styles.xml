@@ -16,13 +16,29 @@
         <item name="android:minHeight">10dip</item>
         <item name="android:maxHeight">20dip</item>
     </style>
-    <style name = "MyDialog" >
+
+    <style name="MyDialog">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowIsTranslucent">true</item>
-        <item name = "android:windowContentOverlay" >@null</item >
-        <item name = "android:colorBackgroundCacheHint" >@null</item >
-        <item name = "android:backgroundDimEnabled">true</item>
-        <item name = "android:windowBackground" >@android:color/transparent</item >
-    </style >
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+    <style name="toolbarsizestyle" parent="@style/Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">20dp</item>
+    </style>
 </resources>

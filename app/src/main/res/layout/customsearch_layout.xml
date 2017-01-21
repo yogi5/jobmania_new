@@ -1,24 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+
+   <!-- <LinearLayout android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/image_bg"
+        android:layout_marginRight="5dip">-->
+
+       <!-- <ImageView
+            android:id="@+id/list_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shortl"
+            />-->
+
+  <!--  </LinearLayout>-->
+
+
     <TextView
         android:id="@+id/txt_jobname1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/lbl_txtsize"
-        android:textStyle="bold" />
+
+
+        android:textColor="#040404"
+        android:typeface="sans"
+        android:textSize="18dip"
+        android:textStyle="bold"/>
+    <ImageView
+        android:id="@+id/list_image1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_jobname1"
+        android:layout_marginTop="7dp"
+        android:src="@drawable/factory"
+        android:layout_marginRight="12dp"
+        />
 
     <TextView
         android:id="@+id/txt_jobdetails1"
-        android:textSize="@dimen/lbl_txtsize"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_jobname1"
 
+        android:textColor="#343434"
+        android:textSize="15dip"
+        android:layout_marginTop="5dp"
+
+        android:layout_toRightOf="@+id/list_image1"
+        android:text="Just" />
+    <ImageView
+        android:id="@+id/list_image2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_jobdetails1"
+        android:src="@drawable/placeholder"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="12dp"
+        />
     <TextView
         android:id="@+id/txt_jobskill1"
-        android:textSize="@dimen/lbl_txtsize"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_jobdetails1"
+        android:textColor="#343434"
+        android:textSize="15dip"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@+id/list_image2"
+        android:text="Just " />
 
-</LinearLayout>
+    <!-- Rightend Arrow -->
+    <ImageView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow87"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>
+
+
+
+
+
+

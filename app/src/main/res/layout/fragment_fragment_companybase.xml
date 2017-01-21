@@ -4,96 +4,142 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.youngindia.jobportal.ui.fragment_companybase">
+
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/user_layout"
-        android:orientation="horizontal"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/border"
-        android:layout_alignEnd="@+id/border"
-        android:weightSum="2">
-        <com.mikhaellopez.circularimageview.CircularImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/profile_pic"
-            android:id="@+id/user_profilepic"
-            app:civ_border_color="#EEEEEE"
-            app:civ_border_width="4dp"
-            app:civ_shadow="true"
-            app:civ_shadow_radius="1"
-            app:civ_shadow_color="@color/colorPrimary"
-            android:layout_weight="0.5"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/imagejob7">
+
+
+        <RelativeLayout
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+
+android:layout_below="@+id/user_layout"
+android:id="@+id/relativeLayout">
+
+</RelativeLayout>
+
+        <Button
+android:layout_width="100dp"
+android:layout_height="100dp"
+android:paddingTop="20dp"
+            android:background="@drawable/circle"
+android:drawableTop="@drawable/k"
+
+android:text="Search"
+android:textColor="#fff"
+
+android:id="@+id/button"
+            android:layout_marginTop="51dp"
+            android:layout_below="@+id/relativeLayout"
+            android:layout_centerHorizontal="true" />
+
+
+
+        <android.support.v7.widget.AppCompatImageView
+android:layout_width="wrap_content"
+android:layout_height="130dp"
+
+            android:layout_marginTop="24dp"
+android:src="@drawable/logoyoungindia"
+    android:id="@+id/view3"
+            android:layout_below="@+id/button"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:orientation="vertical">
-            <TextView
+            android:id="@+id/user_layout"
+            android:orientation="horizontal"
+            android:layout_marginTop="14dp"
+            android:weightSum="2"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:id="@+id/user_profilepic"
+                android:src="@drawable/default_pic"
+                android:layout_marginLeft="15dp"
+                android:layout_centerHorizontal="true"
+                />
+            <!--<com.mikhaellopez.circularimageview.CircularImageView-->
+                <!--android:layout_width="200dp"-->
+                <!--android:layout_height="200dp"-->
+
+                <!--android:src="@drawable/companylogos"-->
+                <!--android:id="@+id/user_profilepic"-->
+                <!--app:civ_border_color="#EEEEEE"-->
+                <!--app:civ_border_width="4dp"-->
+                <!--app:civ_shadow="true"-->
+                <!--app:civ_shadow_radius="1"-->
+                <!--android:scaleType="fitXY"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--app:civ_shadow_color="@color/colorPrimary"-->
+                <!--android:layout_weight="0.5"/>-->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/user_name"
-                android:layout_marginTop="@dimen/fab_margin"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/user_qualification"
-                android:layout_marginTop="@dimen/fab_margin"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/user_skill"
-                android:layout_marginTop="@dimen/fab_margin"/>
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/company_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_name"
+                    android:layout_marginLeft="20dp"
+                    android:paddingLeft="10dp"
+
+                    android:layout_marginTop="@dimen/fab_margin"/>
+                <TextView
+                    android:id="@+id/company_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_qualification"
+                    android:layout_marginLeft="20dp"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="@dimen/fab_margin"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/progressbar_layout"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/user_layout"
-        android:layout_marginTop="20dp"
-        android:weightSum="1">
-        <ProgressBar
-            android:id="@+id/pbId"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorAccent"
-            style="@style/CustomProgressBarHorizontal"
-            android:layout_weight="0.5"/>
-        <TextView
-            android:id="@+id/tvId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"/>
-    </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:id="@+id/border"
-        android:layout_height="2dp"
-        android:layout_below="@+id/progressbar_layout"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="5dp"
-        android:paddingBottom="2dp">
-    </TextView>
-    <GridView
-        android:id="@+id/gridview"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/border"
-        android:layout_marginTop="10dp"
-        android:numColumns="auto_fit"
-        android:columnWidth="120dp"
-        android:verticalSpacing="5dp"
-        android:horizontalSpacing="5dp"
-        android:stretchMode="columnWidth"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
-    </GridView>
-</RelativeLayout>
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:paddingTop="20dp"
+            android:background="@drawable/circle"
+            android:text="Post jobs"
+            android:textColor="#fff"
+            android:drawableTop="@drawable/n"
+            android:id="@+id/button3"
+            android:layout_marginRight="14dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="67dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/button"
+            android:layout_toStartOf="@+id/button" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:paddingTop="20dp"
+            android:drawableTop="@drawable/v"
+            android:text="shortlist"
+            android:textColor="#fff"
+            android:background="@drawable/circle"
+            android:id="@+id/button2"
+            android:layout_marginRight="13dp"
+            android:layout_marginEnd="13dp"
+            android:layout_alignBaseline="@+id/button3"
+            android:layout_alignBottom="@+id/button3"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
 </FrameLayout>

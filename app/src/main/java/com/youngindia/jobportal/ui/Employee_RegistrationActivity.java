@@ -7,6 +7,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import com.youngindia.jobportal.R;
 
@@ -15,6 +19,7 @@ public class Employee_RegistrationActivity extends AppCompatActivity {
     fragment_emp_regitin fragment_emp_regitin1;
     fragmnet_emp_reg2 fragmnet_emp_reg2;
     fragment_employee_registration fragment_employee_registration;
+    employee_registration1 employee_registration1;
     Toolbar toolbar;
     private final static String FRAGMENT_TAG = "FRAGMENTB_TAG";
     /**
@@ -25,10 +30,12 @@ public class Employee_RegistrationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_employee__registration);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.toolbar_backbtn);
-
+        toolbar.setTitleTextColor(getResources().getColor(R.color.btn_textColor));
         setSupportActionBar(toolbar);
 
        /* toolbar.setNavigationOnClickListener(new View.OnClickListener(){
@@ -48,13 +55,13 @@ public class Employee_RegistrationActivity extends AppCompatActivity {
 //        });
         fragmnet_emp_reg2 = new fragmnet_emp_reg2();
         fragment_emp_regitin1 = new fragment_emp_regitin();
-
+        employee_registration1=new employee_registration1();
         fragment_employee_registration=new fragment_employee_registration();
 
 
         FragmentTransaction fragmenttransaction = getSupportFragmentManager().beginTransaction();
         //   sScreen = getResources().getString(R.string.title_wall);
-        fragmenttransaction.replace(R.id.frame_container1,fragment_employee_registration, FRAGMENT_TAG);
+        fragmenttransaction.replace(R.id.frame_container1,fragment_emp_regitin1, FRAGMENT_TAG);
      /*   MyFragment myFragment = (MyFragment)getFragmentManager().findFragmentByTag(FRAGMENT_TAG);
         if (myFragment != null && myFragment.isVisible()) {
             // add your code here
@@ -93,9 +100,23 @@ String currentFragmentTag = fm.getBackStackEntryAt(fm.getBackStackEntryCount() -
         // See https://g.co/AppIndexing/AndroidStudio for more information.
 
     }
+    /*@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.registermenu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_skip)
+        {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }*/
 
 
 
-
+  
 
 }

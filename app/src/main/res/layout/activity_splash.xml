@@ -2,22 +2,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splsh_img" >
-    <!--<ImageView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:id="@+id/imageView_splashImage"-->
-        <!--android:background="@drawable/splsh_img"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_centerHorizontal="true" />-->
+    android:background="@drawable/background" >
 
-    <!--<TextView-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginBottom="10dp"-->
-        <!--android:textSize="12dp"-->
-        <!--android:textColor="#454545"-->
-        <!--android:gravity="center_horizontal"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:text="www.youngindiagroup.in" />-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_splashImage"
+        android:src="@drawable/splsh_img"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp" />
+
+    <TextView
+        android:text="Choose a job you love, and you will never have to work a day in your life. - Confucius"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="53dp"
+        android:id="@+id/textView3"
+        android:textColor="#ff33cc"
+        android:textSize="16dp"
+        android:gravity="center"
+        android:layout_below="@+id/imageView_splashImage"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="28dp"
+        android:layout_marginEnd="28dp" />
+
+
 </RelativeLayout>

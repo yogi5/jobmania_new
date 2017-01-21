@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">YoungIndiaJobs</string>
+    <string name="app_name">Jobby</string>
     <string name="action_settings">Settings</string>
     <string name="action_refresh">Settings</string>
     <string name="action_new">Settings</string>
@@ -77,9 +77,17 @@
         <item>Technology, Media and Telecomunication</item>
 
         <item>Others</item>
+        <item>Any</item>
 
 
     </string-array>
+    <string name="button_name">Register For GCM Push Notification</string>
+    <string name="registration_status">Registration Status : Null</string>
+
+    <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcm sender to send downstream messages to this app.</string>
+    <string name="registering_message">Generating InstanceID token...</string>
+    <string name="token_error_message">An error occurred while either fetching the InstanceID token, sending the fetched token to the server or subscribing to the PubSub topic. Please try running the sample again.</string>
+    <string name="error_network_timeout">Network Timeout</string>
 
     <string name="function">Function</string>
     <string-array name="function_name">
@@ -192,6 +200,7 @@
     <string name="qualification">Qualification</string>
     <string name="salary">Salary</string>
     <string name="search">Search</string>
+    <string name="search1">SEARCH</string>
     <string name="hint_desgntion">eg.Skills,Android,Java</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -218,35 +227,56 @@
 
     </string-array>
     <string-array name="salary">
-        <item>Salary</item>
-        <item>1Lac</item>
-        <item>2Lac</item>
-        <item>3Lac</item>
-        <item>4Lac</item>
-        <item>5Lac</item>
-        <item>6Lac</item>
-        <item>7Lac</item>
-        <item>8Lac</item>
-        <item>9Lac</item>
-        <item>10Lac</item>
+        <item>0</item>
+        <item>1lac</item>
+        <item>2lac</item>
+        <item>3lac</item>
+        <item>4lac</item>
+        <item>5lac</item>
+        <item>6lac</item>
+        <item>7lac</item>
+        <item>8lac</item>
+        <item>9lac</item>
+        <item>10lac</item>
+    </string-array>
+    <string-array name="salary1">
+        <item>0</item>
+        <item>10thousands</item>
+        <item>15thousands</item>
+        <item>20thousands</item>
+        <item>25thousands</item>
+        <item>30thousands</item>
+        <item>35thousands</item>
+        <item>40thousands</item>
+        <item>45thousands</item>
+        <item>50thousands</item>
+        <item>55thousands</item>
+        <item>60thousands</item>
+        <item>65thousands</item>
+        <item>70thousands</item>
+        <item>75thousands</item>
+        <item>80thousands</item>
+        <item>85thousands</item>
+        <item>90thousands</item>
+        <item>95thousands</item>
     </string-array>
 
     <string name="current_company">Current Company</string>
     <string name="keyskill">Key Skills</string>
-    <string name="company_role">University</string>
-    <string name="languages">Languages</string>
+    <string name="company_role">Designation</string>
+    <string name="languages">Languages Known</string>
     <string name="job_perfernce">Job Perfernce</string>
     <string name="other_detail">Other Detail</string>
 
     <string-array name="categoy_array">Catagory
 
         <item>Select Category</item>
-        <item>Genral</item>
+        <item>General</item>
         <item>SC</item>
         <item>OBC</item>
         <item>ST</item>
 
-        </string-array>
+    </string-array>
 
     <string name="location_perfer">Perfer Location</string>
     <string name="postion">Position</string>
@@ -262,19 +292,19 @@
     <string name="graducation">Graducation</string>
     <string name="percentage">Percentage/CGPA</string>
     <string name="midle_name">Middle Name</string>
-    <string name="tenth">Matriculation</string>
+    <string name="tenth">10th</string>
     <string name="others">Others</string>
-    <string name="twelv">Secondary</string>
+    <string name="twelv">PUC/10+2</string>
     <string name="lst_name">Last Name</string>
     <string name="job_owner_Detail">Job Owner Details</string>
     <string name="expected_slry">Expected Salary</string>
     <string name="job">Job</string>
     <string name="job_detail">Job Detail</string>
-    <string name="key_skill">Key Skills</string>
-    <string name="dob">Date of birth</string>
+    <string name="key_skill">Key Skills/Specialization</string>
+    <string name="dob">D.O.B</string>
     <string name="total_experecnce">Total Experience</string>
 
-    <string name="year">Year of passed</string>
+    <string name="year">Year of passing</string>
     <string-array name="year_name">
         <item>Select Year</item>
         <item>2013</item>
@@ -287,12 +317,11 @@
     <string name="title_activity_employer__home">Employer_HomeActivity</string>
     <string name="inbox">Inbox</string>
     <string name="categories">Categories</string>
-    <string name="physically_challeged">Physically Challeged</string>
+    <string name="physically_challeged">Physically Challenged</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-
     <string name="sponsored_field">Sponsored Field</string>
-    <string name="sponsored_field_name">Sponsor Name</string>
+    <string name="sponsored_field_name">Sponsored By</string>
     <string name="sponsored_field_detailed">Sponsore Detailes</string>
     <string name="starred">Post a Job</string>
     <string-array name="items">
@@ -319,35 +348,58 @@
 
     </string-array>
 
+    <string name="passprt">Passport</string>
+    <string name="marital_status">Marital Status</string>
+    <string-array name="marital_status_name">
+        <item>Select Status</item>
+        <item>Married</item>
+        <item>Single</item>
+        <item>Widowed</item>
+        <item>Divorced</item>
+    </string-array>
+    <string-array name="franchisename">
+        <item>Select Your Franchise</item>
+        <item>Franchise1</item>
+        <item>Franchise2</item>
+        <item> Franchise3</item>
+        <item>Franchise4</item>
+    </string-array>
     <string name="gender">Gender</string>
     <string name="contact">Contact no</string>
     <string name="occupation">Occupation</string>
     <string name="profession">Profession</string>
     <string-array name="profession_name">
         <item>Select Profession</item>
-        <item>Plamber</item>
         <item>Barber</item>
+        <item>Bookbinder</item>
+        <item>Cooks</item>
+        <item>Driver</item>
+        <item>Fast Food Cook</item>
+        <item>Gardening</item>
+        <item>Housekeeper</item>
+        <item>Mechanic</item>
+        <item>Nurse</item>
+        <item> Office Clerk</item>
+        <item>Operator</item>
+        <item>Painter</item>
+        <item>Plumber</item>
+        <item>Secretary</item>
         <item>Tailor</item>
-        <item>Designer</item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item> Teacher</item>
+        <item> Travel Agent</item>
+        <item>Telephone Operator </item>
+        <item>welder</item>
+        <item> Electrician</item>
     </string-array>
     <!-- Daily Wagers -->
     <string name="wages">Wages</string>
     <string-array name="wages_rs">
-        <item>Select Wages</item>
-        <item>Rs. 1000</item>
-        <item>Rs. 2000</item>
-        <item>Rs. 3000</item>
-        <item>Rs. 4000</item>
-        <item>Rs. 5000</item>
-        <item>Rs. 6000</item>
-        <item>Rs. 7000</item>
-        <item>Rs. 8000</item>
-        <item>Rs. 9000</item>
+        <item>SelectWages</item>
+        <item>Rs100-Rs300</item>
+        <item>Rs300-Rs600</item>
+        <item>Rs600-Rs900</item>
+        <item>Rs900-Rs1200</item>
     </string-array>
-
     <string name="charge_per_hour">Charges per hour</string>
     <string-array name="charges">
         <item>Select Hours</item>
@@ -395,5 +447,121 @@
         <item>Franchise_05</item>
         <item>Franchise_06</item>
     </string-array>
+    <string name="state">State</string>
+    <string-array name="state_name">
+        <item> Andhra Pradesh (AP)</item>
+        <item>Arunachal Pradesh (AR)</item>
+        <item>Assam (AS)</item>
+        <item>Bihar (BR)</item>
+        <item>Chhattisgarh (CG)</item>
+        <item>Goa (GA)</item>
+        <item>Haryana (HR)</item>
+        <item>Himachal Pradesh (HP)</item>
+        <item> Jammu and Kashmir (JK)</item>
+        <item>  Jharkhand (JH)</item>
+        <item>   Karnataka (KA)</item>
+        <item>  Kerala (KL)</item>
+        <item>    Madhya Pradesh (MP)</item>
+        <item> Maharashtra (MH)</item>
+        <item>   Manipur (MN)</item>
+        <item>Meghalaya (ML)</item>
+        <item>Mizoram (MZ)</item>
+        <item>Nagaland (NL)</item>
+        <item>  Odisha(OR)</item>
+        <item>Punjab (PB)</item>
+        <item>Rajasthan (RJ)</item>
+        <item>  Sikkim (SK)</item>
+        <item>Tamil Nadu (TN)</item>
+        <item>Tripura (TR)</item>
+        <item>  Uttar Pradesh (UP)</item>
+        <item> Uttarakhand (UK)</item>
+        <item>  West Bengal (WB)</item>
+    </string-array>
+    <string name="title_activity_user_registration">UserRegistration</string>
+    <string name="university_board">University/Institute/Board</string>
+    <string name="company_name">Company name:</string>
+    <string name="company_details">Company Details:</string>
+    <string name="emplyee_no">No.of employee:</string>
+    <string name="company_url">Company Url:</string>
+    <string name="company_person_name">Contact person name:</string>
+    <string name="company_person_contact">Contact number:</string>
+    <string name="company_logo">Company Logo</string>
+    <string name="full_time">Full Time</string>
+    <string name="part_time">Part Time</string>
+    <string name="distance">Distance</string>
+    <string name="city">City</string>
+    <string name="pincode">Pincode</string>
+    <string name="other_education">Other Education/Diploma</string>
+    <string name="course">Course</string>
+    <string name="higher_education">Higher Education</string>
+    <string-array name="higher_education">
+        <item>Select Higher Degree </item>
+        <item> PHD</item>
+        <item> Master Degree</item>
+        <item> Post Graduation Degree</item>
+        <item> Graduation</item>
+        <item> M.Phil</item>
+        <item>B.TECH</item>
+    </string-array>
+    <string-array name="cities">
+        <item>Bengaluru</item>
+        <item>Mangalore</item>
+        <item>Hubli</item>
+        <item>Gulbarga</item>
+        <item> Belgaum</item>
+        <item>Bellary</item>
+        <item>Shimoga</item>
+        <item>Tumkur</item>
+        <item>Bijapur</item>
+        <item>Mysore</item>
+        <item>Davangere</item>
+        <item>Bidar</item>
+        <item>Dharwad</item>
+        <item>Udupi</item>
+        <item>Gadag</item>
+        <item>Madikeri</item>
+        <item>Chikmanglur</item>
+        <item>Hampi</item>
+        <item>Mandya</item>
+        <item>	Bijapur</item>
+        <item>Bagalkot</item>
+        <item>Hassan</item>
+        <item>Chitradurga</item>
+    </string-array>
 
+    <string-array name="locality">
+        <item>Select Location</item>
+        <item>Other</item>
+        <item>Adugodi</item>
+        <item>Austin</item>
+        <item>TownAvenue Road</item>
+        <item>Balepet</item>
+        <item>Basavanagudi</item>
+        <item>Benson Town</item>
+        <item>Shivajinagar</item>
+        <item>Vittal Mallya Road</item>
+        <item>Rajaji Nagar</item>
+        <item>Richmond Town</item>
+        <item>Palace Road</item>
+        <item>Magadi Road</item>
+        <item>Cunningham</item>
+        <item>Domlur Layout</item>
+        <item>Indira Nagar</item>
+        <item>Old Airport Road</item>
+        <item>Varthur</item>
+        <item>Marathahalli</item>
+        <item>Kadugodi</item>
+        <item>Seshadripuram</item>
+        <item>Malleshwaram</item>
+        <item>Yelahanka</item>
+        <item>Yeshwanthpur</item>
+        <item>Banashankari</item>
+        <item>Koramangala</item>
+        <item>Kumaraswamy Layout</item>
+        <item>BTM Layout</item>
+        <item>Whitefield</item>
+        <item>ITPL Road</item>
+    </string-array>
+
+    <string name="title_activity_full_screen_resume">FullScreen_resume</string>
 </resources>

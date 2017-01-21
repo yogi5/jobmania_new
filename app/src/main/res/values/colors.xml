@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#355088</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#12bbf0</color>
+    <color name="colorAccent">#2CA28B</color>
     <color name="gen_app_color">#4AAE70</color>
     <color name="colorNav">#42b48e</color>
     <color name="colorBase">#12bbf0</color>
+    <color name="gridcolour">#d0eee7</color>
     <color name="color">#7fffd4</color>
     <color name="color_blue">#12bbf0</color>
+    <color name="heading">#6a5ec6</color>
     <color name="color_transparent">#80FFFFFF</color>
-    <color name="btn_color">#12bbf0</color>
+    <color name="btn_color">#2CA28B</color>
     <color name="btn_textColor">#FFFFFF</color>
     <color name="light_creamy_brown">#fbf0c1</color>
     <color name="backgd_light_blue">#e8eaf6</color>
     <color name="textColorPrimary">#000000</color>
-
+    <color name="backgroundcolor">#80D8FF</color>
     <color name="black_overlay">#66000000</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="Red">#ea4d3c</color>
+    <color name="radio_button_selected_color_candidate">#FF7733</color>
+    <color name="radio_button_selected_color_comapny">#ffff</color>
+    <color name="radio_button_selected_color_franchise">#228B22</color>
+    <color name="radio_button_selected_color_dailywager">#00008B</color>
+
 </resources>

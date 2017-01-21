@@ -1,213 +1,388 @@
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="5dp"
     tools:context="com.youngindia.jobportal.ui.fragment_employee_registration">
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/scrollview1"
-         android:padding="16dp"
-        android:layout_above="@+id/nxtbtn"
-        android:layout_marginTop="10dp">
+        android:padding="16dp"
+        android:layout_alignParentTop="true"
+        android:fillViewport="false"
+        android:background="@color/backgd_light_blue"
+        android:layout_above="@+id/nxtbtn">
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <com.youngindia.jobportal.fonts.Roboto_Regular
-                android:id="@+id/txt_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/name1"
-                android:textColor="@color/textColorPrimary"
-                android:textSize="@dimen/lbl_txtsize"/>
-            <EditText
-                android:id="@+id/Ed_name"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edt_height_normal"
-                android:background="@color/color_transparent"
-                android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
-                android:layout_below="@+id/txt_name"
-                android:textSize="@dimen/lbl_txtsize"
-                android:singleLine="true" />
-       <com.youngindia.jobportal.fonts.Roboto_Regular
-                android:id="@+id/txt_lstName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/lst_name"
-                android:textColor="@color/textColorPrimary"
-                android:layout_weight="1"
-                android:layout_below="@id/Ed_name"
-                android:textSize="@dimen/lbl_txtsize"/>
-            <EditText
-                android:id="@+id/Ed_lstName"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edt_height_normal"
-                android:background="@color/color_transparent"
-                android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
-                android:layout_below="@+id/txt_lstName"
-                android:textSize="@dimen/lbl_txtsize"
-                android:singleLine="true"/>
-            <com.youngindia.jobportal.fonts.Roboto_Regular
-                android:id="@+id/txt_dob"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/dob"
-                android:layout_below="@+id/Ed_lstName"
-                android:textColor="@color/textColorPrimary"/>
-                      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
-                android:id="@+id/linearlayout"
-                android:layout_height="fill_parent"
-                android:orientation="vertical"
-                android:layout_below="@id/txt_dob">
-                          <TextView
-                    android:id="@+id/lblDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Current Date (M-D-YYYY): "
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/tvDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                          <Button
-                              android:id="@+id/btnChangeDate"
-                              android:layout_width="wrap_content"
-                              android:layout_height="wrap_content"
-                              android:text="Change Date" />
-                          <DatePicker
-                    android:id="@+id/dpResult"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp" />
-
-            </LinearLayout>
-
-            <com.youngindia.jobportal.fonts.Roboto_Regular
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/textColorPrimary"
-                android:textSize="@dimen/lbl_txtsize"
-                android:id="@+id/tv_gender"
-                android:text="@string/gender"
-                android:layout_below="@id/linearlayout"/>
-            <LinearLayout
-                android:id="@+id/linearLayout_gender"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_gender"
-                android:weightSum="2"
-                android:gravity="center"
-                android:layout_marginBottom="@dimen/mrgin_btwn_edtText">
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Male"
-                    android:contextClickable="true"
-                    android:layout_weight="1"
-                    android:id="@+id/radioButton_male" />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Female"
-                    android:contextClickable="true"
-                    android:layout_weight="1"
-                    android:id="@+id/radioButton_female" />
-            </LinearLayout>
-            <com.youngindia.jobportal.fonts.Roboto_Regular
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/textColorPrimary"
-                android:textSize="@dimen/lbl_txtsize"
-                android:id="@+id/tv_mob"
-                android:text="@string/contact"
-                android:layout_below="@id/linearLayout_gender"/>
-        <EditText
-                android:id="@+id/Ed_contact"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edt_height_normal"
-                android:background="@color/color_transparent"
-                android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
-                android:layout_below="@+id/tv_mob"
-                android:textSize="@dimen/lbl_txtsize"
-                android:singleLine="true"/>
-            <com.youngindia.jobportal.fonts.Roboto_Regular
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/textColorPrimary"
-                android:textSize="@dimen/lbl_txtsize"
-                android:id="@+id/tv_email"
-                android:text="@string/email"
-                android:layout_below="@id/Ed_contact"/>
-            <EditText
-                android:id="@+id/edt_email"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edt_height_normal"
-                android:background="@color/color_transparent"
-                android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
-                android:layout_below="@+id/tv_email"
-                android:textSize="@dimen/lbl_txtsize"
-                android:singleLine="true"/>
             <com.youngindia.jobportal.fonts.Roboto_Regular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="@dimen/lbl_txtsize"
                 android:id="@+id/tv_currentAddress"
-                android:text="@string/current_address"
-                android:layout_below="@id/edt_email"/>
-
-            <EditText
+                android:text="@string/current_address"/>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/edt_height_normal"
-                android:inputType="textMultiLine"
-                android:ems="10"
-                android:id="@+id/edt_current_Address"
-               android:layout_below="@+id/tv_currentAddress"
-                android:background="@color/color_transparent"/>
-            <CheckBox
-                android:id="@+id/checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="if current address and permant address is same"
-                android:checked="true"
-                android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
-                android:layout_below="@id/edt_current_Address"/>
+                android:layout_below="@+id/tv_currentAddress"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:inputType="textMultiLine"
+                    android:maxLines="5"
+                    android:id="@+id/edt_current_Address"
+                    android:layout_below="@+id/input_layout"
+                    android:background="@color/color_transparent"/>
+            </android.support.design.widget.TextInputLayout>
             <com.youngindia.jobportal.fonts.Roboto_Regular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="@dimen/lbl_txtsize"
-                android:id="@+id/tv_permanentAddress"
-                android:text="@string/permant_address"
-                android:layout_below="@id/checkbox"/>
-            <EditText
+                android:id="@+id/tv_current_state"
+                android:text="@string/state"
+                android:layout_below="@id/input_layout"/>
+            <LinearLayout
+                android:id="@+id/linerlayout_state"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/edt_height_normal"
-                android:inputType="textMultiLine"
-                android:ems="10"
-                android:id="@+id/edt_permanet_Address"
-                android:background="@color/color_transparent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/spinner_shape"
+                android:layout_below="@+id/tv_current_state"
+                android:layout_marginBottom="@dimen/mrgin_btwn_edtText">
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_current_state"
+                    android:entries="@array/state_name"
+                    android:prompt="@string/state"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:contextClickable="true"/>
+            </LinearLayout>
+            <!-- City and Pincode-->
+            <LinearLayout
+                android:id="@+id/linearlayout_current_city_pincode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/linerlayout_state">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="2">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_marginBottom="8dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="135dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/city"
+                                android:textColor="@color/textColorPrimary"
+                                android:id="@+id/txt_current_city"/>
+                            <EditText
+                                android:singleLine="true"
+                                android:id="@+id/edt_current_city"
+                                android:layout_width="98dp"
+                                android:inputType="text"
+                                android:background="@drawable/spinner_shape"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                        <!--Percentage in 12th-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/pincode"
+                                android:textColor="@color/textColorPrimary"
+                                android:id="@+id/txt_current_pincode"/>
+                            <EditText
+                                android:id="@+id/edt_current_pincode"
+                                android:layout_width="119dp"
+                                android:singleLine="true"
+                                android:background="@drawable/spinner_shape"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:maxLength="6"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="if current address and permant address is same"
+                android:clickable="true"
                 android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
-                android:layout_below="@id/tv_permanentAddress"/>
+                android:layout_below="@id/linearlayout_current_city_pincode"/>
+            <!--Permanant Address-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/checkbox"
+                android:id="@+id/permanentaddresslayout"
+                android:visibility="visible">
+                <com.youngindia.jobportal.fonts.Roboto_Regular
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="@dimen/lbl_txtsize"
+                    android:id="@+id/tv_permanentAddress"
+                    android:text="@string/permant_address" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:inputType="textMultiLine"
+                    android:ems="10"
+                    android:maxLines="5"
+                    android:id="@+id/edt_parmanent_Address"
+                    android:layout_below="@+id/tv_permanentAddress"
+                    android:background="@color/color_transparent"/>
+                <com.youngindia.jobportal.fonts.Roboto_Regular
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="@dimen/lbl_txtsize"
+                    android:id="@+id/tv_ParmanentAddres_state"
+                    android:text="@string/state"
+                    android:layout_below="@id/edt_parmanent_Address"/>
+                <LinearLayout
+                    android:id="@+id/linerlayout2_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/spinner_shape"
+                    android:layout_below="@+id/tv_ParmanentAddres_state"
+                    android:layout_marginBottom="@dimen/mrgin_btwn_edtText">
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner_parmantAddress_State"
+                        android:entries="@array/state_name"
+                        android:prompt="@string/state"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:contextClickable="true"/>
+                </LinearLayout>
+                <!-- City and Pincode-->
+                <LinearLayout
+                    android:id="@+id/linearlayout_parmantAddress_city_pincode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/linerlayout2_state">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="2">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2"
+                            android:layout_marginBottom="8dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginTop="5dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="135dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/city"
+                                    android:textColor="@color/textColorPrimary"
+                                    android:id="@+id/txt_parmnt_city"/>
+                                <EditText
+                                    android:singleLine="true"
+                                    android:id="@+id/edt_parmnt_city"
+                                    android:layout_width="98dp"
+                                    android:inputType="text"
+                                    android:background="@drawable/spinner_shape"
+                                    android:layout_height="wrap_content"/>
+                            </LinearLayout>
+                            <!--Percentage in 12th-->
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginTop="5dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/pincode"
+                                    android:textColor="@color/textColorPrimary"
+                                    android:id="@+id/txt_parmnt_pincode"/>
+                                <EditText
+                                    android:id="@+id/edt_parmnt_pincode"
+                                    android:layout_width="119dp"
+                                    android:singleLine="true"
+                                    android:background="@drawable/spinner_shape"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number"
+                                    android:maxLength="6"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+            <!--<com.youngindia.jobportal.fonts.Roboto_Regular-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="@color/textColorPrimary"-->
+            <!--android:textSize="@dimen/lbl_txtsize"-->
+
+            <!--<com.youngindia.jobportal.fonts.Roboto_Regular-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="@color/textColorPrimary"-->
+            <!--android:textSize="@dimen/lbl_txtsize"-->
+            <!--android:id="@+id/tv_currentAddress"-->
+            <!--android:text="@string/current_address"/>-->
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="70dp"-->
+            <!--android:inputType="textPostalAddress"-->
+            <!--android:ems="10"-->
+            <!--android:lines="4"-->
+            <!--android:id="@+id/edt_current_Address"-->
+            <!--android:layout_below="@+id/tv_currentAddress"-->
+            <!--android:background="@color/color_transparent"/>-->
+            <!--<com.youngindia.jobportal.fonts.Roboto_Regular-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="@color/textColorPrimary"-->
+            <!--android:textSize="@dimen/lbl_txtsize"-->
+            <!--android:id="@+id/tv_state"-->
+            <!--android:text="@string/state"-->
+            <!--android:layout_below="@id/edt_current_Address"/>-->
+            <!--<LinearLayout-->
+            <!--android:id="@+id/linerlayout_state"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:background="@drawable/spinner_shape"-->
+            <!--android:layout_below="@+id/tv_state"-->
+            <!--android:layout_marginBottom="@dimen/mrgin_btwn_edtText">-->
+            <!--<Spinner-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/spinner_location"-->
+            <!--android:entries="@array/state_name"-->
+            <!--android:prompt="@string/state"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:contextClickable="true"/>-->
+            <!--</LinearLayout>-->
+            <!--&lt;!&ndash; City and Pincode&ndash;&gt;-->
+            <!--<LinearLayout-->
+            <!--android:id="@+id/linearlayout_city_pincode"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_below="@+id/linerlayout_state">-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_weight="2">-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:weightSum="2"-->
+            <!--android:layout_marginBottom="8dp">-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:orientation="vertical">-->
+            <!--<TextView-->
+            <!--android:layout_width="135dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/city"-->
+            <!--android:id="@+id/txt_year_12th"/>-->
+            <!--<EditText-->
+            <!--android:singleLine="true"-->
+            <!--android:id="@+id/edt_12th_year"-->
+            <!--android:layout_width="98dp"-->
+            <!--android:background="@drawable/spinner_shape"-->
+            <!--android:layout_height="wrap_content"/>-->
+            <!--</LinearLayout>-->
+            <!--&lt;!&ndash;Percentage in 12th&ndash;&gt;-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:orientation="vertical">-->
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/pincode"-->
+            <!--android:id="@+id/txt_percentage_12th"/>-->
+            <!--<EditText-->
+            <!--android:id="@+id/edt_12th_percntage"-->
+            <!--android:layout_width="119dp"-->
+            <!--android:singleLine="true"-->
+            <!--android:background="@drawable/spinner_shape"-->
+            <!--android:layout_height="wrap_content"/>-->
+            <!--</LinearLayout>-->
+            <!--</LinearLayout>-->
+            <!--</LinearLayout>-->
+
+
+            <!--</LinearLayout>-->
+
+
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/edt_height_normal"-->
+            <!--android:inputType="textMultiLine"-->
+            <!--android:ems="10"-->
+            <!--android:id="@+id/edt_permanet_Address"-->
+            <!--android:background="@color/color_transparent"-->
+            <!--android:layout_marginBottom="@dimen/mrgin_btwn_edtText"-->
+            <!--android:layout_below="@id/tv_permanentAddress"/>-->
         </RelativeLayout>
 
     </ScrollView>
+
     <com.youngindia.jobportal.fonts.Roboto_Regular_Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="@dimen/btn_height"
         android:id="@+id/nxtbtn"
         android:text="Next"
         android:textSize="@dimen/btn_txtsize"
         android:background="@drawable/btnshape"
         android:textColor="@color/btn_textColor"
-
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_horizontal|bottom"
         android:layout_alignParentBottom="true"
-        android:layout_gravity="center_horizontal|bottom" />
-
-
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

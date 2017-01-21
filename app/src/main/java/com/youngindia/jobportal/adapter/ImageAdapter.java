@@ -4,15 +4,15 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.youngindia.jobportal.R;
 
-/**
- * Created by anupam on 13-05-2016.
- */
+
 public class ImageAdapter extends BaseAdapter {
     private Context mContext;
     public Integer[] mThumbIds;
@@ -54,6 +54,14 @@ public class ImageAdapter extends BaseAdapter {
             ImageView imageView = (ImageView)grid.findViewById(R.id.grid_image);
             textView.setText(jobtype[position]);
             imageView.setImageResource(mThumbIds[position]);
+            Animation anim = AnimationUtils.loadAnimation(mContext,R.anim.slide_down);
+
+            // By default all grid items will animate together and will look like the gridview is
+            // animating as a whole. So, experiment with incremental delays as below to get a
+            // wave effect.
+            anim.setStartOffset((position*3) *100);
+            grid.setAnimation(anim);
+            anim.start();
         } else {
             grid = (View) convertView;
         }

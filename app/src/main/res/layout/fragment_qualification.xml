@@ -1,289 +1,753 @@
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.youngindia.jobportal.ui.fragment_qualification">
+    android:background="@color/backgd_light_blue"
+    tools:context="com.youngindia.jobportal.ui.fragment_qualification"
+    android:paddingBottom="5dp">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/padding_layout"
-        android:layout_marginTop="20dp"
-        android:background="@color/backgd_light_blue" >
-     <RelativeLayout
+        android:layout_alignParentTop="true"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/btn_height">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"  >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Higher Education"
+                android:textColor="@color/textColorPrimary"
+                android:id="@+id/higheredutxt"/>
+            <!--<RadioGroup-->
+                <!--android:id="@+id/radio_btn_group_higher_education"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:weightSum="2"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_marginBottom="@dimen/mrgin_btwn_edtText">-->
+                <!--<RadioButton-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Master Degree"-->
+                    <!--android:checked="true"-->
+                    <!--android:contextClickable="true"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:id="@+id/radio_btn_master_degree"/>-->
+                <!--<RadioButton-->
+                    <!--android:id="@+id/radioButton_bachlor_degree"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Bachelor Degree"-->
+                    <!--android:contextClickable="true"-->
+                    <!--android:layout_weight="1"/>-->
+            <!--</RadioGroup>-->
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"  >
-             <!--TextView and Edit Txt in Graducation part-->
-         <LinearLayout
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:orientation="vertical"
-                 android:layout_marginTop="5dp"
-                 android:id="@+id/linearlayout_graducation">
-                 <TextView
-                     android:layout_width="256dp"
-                     android:layout_height="wrap_content"
-                     android:text="@string/graducation"
-                     android:id="@+id/txt_graducation" />
-                 <EditText
-                     android:id="@+id/edt_graducation_name"
-                     android:layout_width="match_parent"
-                     android:background="@drawable/spinner_shape"
-                     android:layout_height="wrap_content"/>
-                        <!--Graducation Year-->
+
+            <!--<com.youngindia.jobportal.fonts.Roboto_Regular-->
+            <!--android:layout_width="256dp"-->
+            <!--android:textSize="@dimen/lbl_txtsize"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="@color/textColorPrimary"-->
+            <!--android:text="@string/higher_education"-->
+            <!--android:id="@+id/txt_higherEducation" />-->
+            <!--<LinearLayout-->
+            <!--android:id="@+id/linerlayout_higher_education"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:background="@drawable/spinner_shape"-->
+            <!--android:layout_below="@+id/txt_higherEducation"-->
+            <!--android:layout_marginBottom="@dimen/mrgin_btwn_edtText">-->
+            <!--<Spinner-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/spinner_higher_education"-->
+            <!--android:entries="@array/higher_education"-->
+            <!--android:prompt="@string/state"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:contextClickable="true"/>-->
+            <!--</LinearLayout>-->
             <LinearLayout
-                 android:layout_width="311dp"
-                 android:layout_height="wrap_content"
-                 android:orientation="horizontal"
-                 android:weightSum="2">
-              <LinearLayout
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_weight="1"
-                     android:layout_marginTop="5dp"
-                     android:orientation="vertical">
-                     <TextView
-                     android:layout_width="135dp"
-                     android:layout_height="wrap_content"
-                     android:text="@string/year"
-                     android:id="@+id/txt_year"/>
-                     <EditText
-                         android:id="@+id/edt_graducation_year"
-                         android:layout_width="98dp"
-                         android:background="@drawable/spinner_shape"
-                         android:layout_height="wrap_content"/>
-              </LinearLayout>
-                     <!--Percentage in Graducation-->
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linearlayoutdegree"
+                android:layout_below="@+id/higheredutxt">
+                <com.youngindia.jobportal.fonts.Roboto_Regular
+                    android:layout_width="256dp"
+                    android:textSize="@dimen/lbl_txtsize"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorPrimary"
+                    android:layout_below="@+id/radio_btn_group_higher_education"
+                    android:id="@+id/txt_course" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/edt_course"
+                    android:layout_width="match_parent"
+                    android:singleLine="true"
+                    android:layout_below="@+id/txt_course"
+                    android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
+                    android:focusable="true"
+                    android:imeOptions="actionNext"
+                    android:background="@color/color_transparent"
+                    android:focusableInTouchMode="true"
+
+                    android:layout_height="wrap_content"/>
+
+                <com.youngindia.jobportal.fonts.Roboto_Regular
+                    android:layout_width="256dp"
+                    android:layout_below="@+id/edt_course"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorPrimary"
+                    android:text="@string/university_board"
+                    android:id="@+id/txt_graducation_university" />
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout"
+                    android:layout_width="match_parent"
+                    android:layout_below="@+id/txt_course"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/edt_graducation_university"
+                        android:layout_width="match_parent"
+                        android:singleLine="true"
+                        android:layout_below="@+id/input_layout"
+                        android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
+                        android:textColor="@color/textColorPrimary"
+                        android:background="@color/color_transparent"
+                        android:layout_height="wrap_content"/>
+                </android.support.design.widget.TextInputLayout>
+                <!--Graducation Year-->
                 <LinearLayout
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_weight="1"
-                         android:layout_marginTop="5dp"
-                         android:orientation="vertical">
-                         <TextView
-                             android:layout_width="match_parent"
-                             android:layout_height="wrap_content"
-                             android:text="@string/percentage"
-                             android:id="@+id/txt_percentage"/>
-                         <EditText
-                             android:id="@+id/edt_graducation_perctage"
-                             android:layout_width="match_parent"
-                             android:background="@drawable/spinner_shape"
-                             android:layout_height="wrap_content"/>
-                     </LinearLayout>
-                 </LinearLayout>
-             </LinearLayout>
+                    android:id="@+id/linearlayout_gradution_yop_percntage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp"
+                    android:layout_below="@id/input_layout"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="3dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/year"
+                            android:textSize="@dimen/lbl_txtsize"
+                            android:textColor="@color/textColorPrimary"
+                            android:id="@+id/txt_year"/>
+                        <EditText
+                            android:id="@+id/edt_graducation_year"
+                            android:layout_width="126dp"
+                            android:singleLine="true"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:textColor="@color/textColorPrimary"
+                            android:nextFocusDown="@+id/edt_graducation_perctage"
+                            android:background="@color/color_transparent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <!--Percentage in Graducation-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/percentage"
+                            android:textSize="@dimen/lbl_txtsize"
+                            android:textColor="@color/textColorPrimary"
+                            android:id="@+id/txt_percentage"/>
+                        <EditText
+                            android:id="@+id/edt_graducation_perctage"
+                            android:layout_width="126dp"
+                            android:singleLine="true"
+                            android:inputType="numberDecimal"
+                            android:textColor="@color/textColorPrimary"
+                            android:nextFocusDown="@+id/edt_12th_year"
+                            android:background="@color/color_transparent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linearlayoutbachelordegree"
+                android:layout_below="@+id/higheredutxt"
+                android:visibility="gone">
+                <com.youngindia.jobportal.fonts.Roboto_Regular
+                    android:layout_width="256dp"
+                    android:textSize="@dimen/lbl_txtsize"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorPrimary"
+                    android:layout_below="@+id/radio_btn_group_higher_education"
+                    android:id="@+id/txt_course1" />
+                <AutoCompleteTextView
+                    android:id="@+id/edt_course1"
+                    android:layout_width="match_parent"
+                    android:singleLine="true"
+                    android:layout_below="@+id/txt_course"
+                    android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
+                   android:imeOptions="actionNext"
+                    android:background="@color/color_transparent"
+                    android:layout_height="wrap_content"/>
+                <com.youngindia.jobportal.fonts.Roboto_Regular
+                    android:layout_width="256dp"
+                    android:layout_below="@+id/edt_course"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorPrimary"
+                    android:text="@string/university_board"
+                    android:id="@+id/txt_graducation_university1" />
+                <EditText
+                    android:id="@+id/edt_graducation_university1"
+                    android:layout_width="match_parent"
+                    android:singleLine="true"
+                    android:nextFocusDown="@+id/edt_graducation_year1"
+                    android:layout_below="@+id/txt_graducation_university"
+                    android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
+                    android:textColor="@color/textColorPrimary"
+                    android:background="@color/color_transparent"
+                    android:layout_height="wrap_content"/>
 
-             <!--Secondary Education-->
+                <!--Graducation Year-->
+                <LinearLayout
+                    android:id="@+id/linearlayout_gradution_yop_percntage1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp"
+                    android:layout_below="@id/edt_graducation_university"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="3dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/year"
+                            android:textSize="@dimen/lbl_txtsize"
+                            android:textColor="@color/textColorPrimary"
+                            android:id="@+id/txt_year1"/>
+                        <EditText
+                            android:id="@+id/edt_graducation_year1"
+                            android:layout_width="126dp"
+                            android:singleLine="true"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:nextFocusDown="@+id/edt_graducation_perctage1"
+                            android:textColor="@color/textColorPrimary"
+                            android:background="@color/color_transparent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <!--Percentage in Graducation-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/percentage"
+                            android:textSize="@dimen/lbl_txtsize"
+                            android:textColor="@color/textColorPrimary"
+                            android:id="@+id/txt_percentage1"/>
+                        <EditText
+                            android:id="@+id/edt_graducation_perctage1"
+                            android:layout_width="126dp"
+                            android:singleLine="true"
+                            android:inputType="numberDecimal"
+                            android:nextFocusDown="@+id/edt_12th_year"
+                            android:textColor="@color/textColorPrimary"
+                            android:background="@color/color_transparent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
 
-                 <!--TextView and Edit Txt in Graducation part-->
-         <LinearLayout
-                     android:id="@+id/linearlayout_12th"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:orientation="vertical"
-                     android:layout_below="@+id/linearlayout_graducation"
-                     android:layout_marginTop="10dp">
-                     <TextView
-                         android:layout_width="256dp"
-                         android:layout_height="wrap_content"
-                         android:text="@string/twelv"
-                         android:id="@+id/txt_12th" />
-                     <EditText
-                         android:id="@+id/edt_12th"
-                         android:layout_width="match_parent"
-                         android:background="@drawable/spinner_shape"
-                         android:layout_height="wrap_content"/>
-                     <!--12th Year-->
-             <LinearLayout
-                         android:layout_width="311dp"
-                         android:layout_height="wrap_content"
-                         android:orientation="horizontal"
-                         android:weightSum="2">
-                 <LinearLayout
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_weight="1"
-                             android:layout_marginTop="5dp"
-                             android:orientation="vertical">
-                             <TextView
-                                 android:layout_width="135dp"
-                                 android:layout_height="wrap_content"
-                                 android:text="@string/year"
-                                 android:id="@+id/txt_year_12th"/>
-                             <EditText
-                                 android:id="@+id/edt_12th_year"
-                                 android:layout_width="98dp"
-                                 android:background="@drawable/spinner_shape"
-                                 android:layout_height="wrap_content"/>
-                 </LinearLayout>
-                         <!--Percentage in 12th-->
-                            <LinearLayout
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_weight="1"
-                             android:layout_marginTop="5dp"
 
-                             android:orientation="vertical">
-                             <TextView
-                                 android:layout_width="match_parent"
-                                 android:layout_height="wrap_content"
-                                 android:text="@string/percentage"
-                                 android:id="@+id/txt_percentage_12th"/>
-                             <EditText
-                                 android:id="@+id/edt_12th_percntage"
-                                 android:layout_width="match_parent"
-                                 android:background="@drawable/spinner_shape"
-                                 android:layout_height="wrap_content"/>
-                         </LinearLayout>
-                     </LinearLayout>
+            <!--+2-->
 
-                 </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearlayout_12th"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/linearlayoutdegree"
+                android:layout_marginTop="10dp">
+                <com.youngindia.jobportal.fonts.Roboto_Regular
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/twelv"
+                    android:textSize="@dimen/lbl_txtsize"
+                    android:layout_below="@+id/linearlayout_12th"
+                    android:textColor="@color/textColorPrimary"
+                    android:id="@+id/txt_12th" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/textColorPrimary"/>
+                <!--<EditText-->
+                <!--android:id="@+id/edt_12th"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:background="@drawable/spinner_shape"-->
+                <!--android:singleLine="true"-->
+                <!--android:textSize="@dimen/lbl_txtsize"-->
+                <!--android:textColor="@color/textColorPrimary"-->
+                <!--android:layout_height="wrap_content"/>-->
+                <!--12th Year-->
+                <LinearLayout
+                    android:id="@+id/linearlayout_twelv_YOP_Percentage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_below="@+id/txt_12th"
+                    android:layout_marginBottom="8dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+                        <com.youngindia.jobportal.fonts.Roboto_Regular
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/year"
+                            android:textSize="@dimen/lbl_txtsize"
+                            android:textColor="@color/textColorPrimary"
+                            android:id="@+id/txt_year_12th"/>
+                        <EditText
+                            android:singleLine="true"
+                            android:id="@+id/edt_12th_year"
+                            android:layout_width="126dp"
+                            android:inputType="number"
+                            android:nextFocusDown="@+id/edt_12th_percntage"
+                            android:maxLength="4"
+                            android:background="@color/color_transparent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <!--Percentage in 12th-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+                        <com.youngindia.jobportal.fonts.Roboto_Regular
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/percentage"
+                            android:textSize="@dimen/lbl_txtsize"
+                            android:textColor="@color/textColorPrimary"
+                            android:id="@+id/txt_percentage_12th"/>
+                        <EditText
+                            android:id="@+id/edt_12th_percntage"
+                            android:layout_width="126dp"
+                            android:singleLine="true"
+                            android:nextFocusDown="@+id/edt_10th_year"
+                            android:inputType="numberDecimal"
+                            android:background="@color/color_transparent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
 
-<!--End of the 12th Education-->
-         <!--10th Detail-->
+            </LinearLayout>
 
-         <!--TextView and Edit Txt in Graducation part-->
-         <LinearLayout
-             android:id="@+id/linearlayout_10th"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:orientation="vertical"
-             android:layout_below="@+id/linearlayout_12th"
-             android:layout_marginTop="10dp">
-             <TextView
-                 android:layout_width="256dp"
-                 android:layout_height="wrap_content"
-                 android:text="@string/tenth"
-                 android:id="@+id/txt_10th" />
-             <EditText
-                 android:id="@+id/edt_10th"
-                 android:layout_width="match_parent"
-                 android:background="@drawable/spinner_shape"
-                 android:layout_height="wrap_content"/>
-             <!--10th Year-->
-             <LinearLayout
-                 android:layout_width="311dp"
-                 android:layout_height="wrap_content"
-                 android:orientation="horizontal"
-                 android:weightSum="2">
-                 <LinearLayout
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_weight="1"
-                     android:layout_marginTop="5dp"
-                     android:orientation="vertical">
-                     <TextView
-                         android:layout_width="135dp"
-                         android:layout_height="wrap_content"
-                         android:text="@string/year"
-                         android:id="@+id/txt_year_10th"/>
-                     <EditText
-                         android:id="@+id/edt_10th_year"
-                         android:layout_width="98dp"
-                         android:background="@drawable/spinner_shape"
-                         android:layout_height="wrap_content"/>
-                 </LinearLayout>
-                 <!--Percentage in 10th-->
-                 <LinearLayout
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_weight="1"
-                     android:layout_marginTop="5dp"
+            <!--End of the 12th Education-->
+            <!--10th Detail-->
+            <!--TextView and Edit Txt in Graducation part-->
+            <LinearLayout
+                android:id="@+id/linearlayout_10th"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/linearlayout_12th">
+                <com.youngindia.jobportal.fonts.Roboto_Regular
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tenth"
+                    android:textSize="@dimen/lbl_txtsize"
+                    android:textColor="@color/textColorPrimary"
+                    android:layout_below="@+id/linearlayout_10th"
+                    android:id="@+id/txt_10th" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/textColorPrimary"/>
+                <!--<EditText-->
+                <!--android:id="@+id/edt_10th"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:singleLine="true"-->
+                <!--android:background="@drawable/spinner_shape"-->
+                <!--android:layout_height="wrap_content"/>-->
 
-                     android:orientation="vertical">
-                     <TextView
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:text="@string/percentage"
-                         android:id="@+id/txt_percentage_10th"/>
-                     <EditText
-                         android:layout_width="match_parent"
-                         android:id="@+id/edt_10th_percentage"
-                         android:background="@drawable/spinner_shape"
-                         android:layout_height="wrap_content"/>
-                 </LinearLayout>
-             </LinearLayout>
+                <!--10th-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="8dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+                        <com.youngindia.jobportal.fonts.Roboto_Regular
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/lbl_txtsize"
+                            android:textColor="@color/textColorPrimary"
+                            android:text="@string/year"
+                            android:id="@+id/txt_year_10th"/>
+                        <EditText
+                            android:id="@+id/edt_10th_year"
+                            android:layout_width="126dp"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:singleLine="true"
+                            android:nextFocusDown="@+id/edt_10th_percentage"
+                            android:background="@color/color_transparent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <!--Percentage in 10th-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+                        <com.youngindia.jobportal.fonts.Roboto_Regular
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/percentage"
+                            android:textSize="@dimen/lbl_txtsize"
+                            android:textColor="@color/textColorPrimary"
+                            android:id="@+id/txt_percentage_10th"/>
+                        <EditText
+                            android:layout_width="126dp"
+                            android:singleLine="true"
+                            android:id="@+id/edt_10th_percentage"
+                            android:inputType="numberDecimal"
+                            android:nextFocusDown="@+id/edt_other_education"
+                            android:background="@color/color_transparent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
 
-         </LinearLayout>
+
+
+
+
+
+
+            <!--Others Details-->
+
+            <com.youngindia.jobportal.fonts.Roboto_Regular
+                android:layout_width="256dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/lbl_txtsize"
+                android:textColor="@color/textColorPrimary"
+                android:text="@string/other_education"
+                android:layout_below="@+id/linearlayout_10th"
+
+                android:id="@+id/txt_otherEducation" />
+            <EditText
+                android:id="@+id/edt_other_education"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:textColor="@color/textColorPrimary"
+                android:layout_below="@+id/txt_otherEducation"
+                android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
+                android:background="@color/color_transparent"
+                android:nextFocusDown="@+id/edt_other_education_university"
+                android:layout_height="wrap_content"/>
+
+            <!--<com.youngindia.jobportal.fonts.Roboto_Regular-->
+            <!--android:layout_width="256dp"-->
+            <!--android:textSize="@dimen/lbl_txtsize"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="@color/textColorPrimary"-->
+            <!--android:text="@string/course"-->
+            <!--android:layout_below="@+id/linerlayout_higher_education"-->
+            <!--android:id="@+id/txt_course" />-->
+            <!--<EditText-->
+            <!--android:id="@+id/edt_course"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:singleLine="true"-->
+            <!--android:layout_below="@+id/txt_course"-->
+            <!--android:layout_marginBottom="@dimen/mrgin_btwn_edtText"-->
+            <!--android:background="@drawable/spinner_shape"-->
+            <!--android:layout_height="wrap_content"/>-->
+            <com.youngindia.jobportal.fonts.Roboto_Regular
+                android:layout_width="256dp"
+                android:layout_below="@+id/edt_other_education"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColorPrimary"
+                android:text="@string/university_board"
+                android:textSize="@dimen/lbl_txtsize"
+                android:id="@+id/txt_other_education_university" />
+            <EditText
+                android:id="@+id/edt_other_education_university"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+android:nextFocusDown="@+id/edt_other_education_year"
+                android:layout_below="@+id/txt_other_education_university"
+                android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
+                android:textColor="@color/textColorPrimary"
+                android:background="@color/color_transparent"
+                android:layout_height="wrap_content"/>
+
+            <!--others Year-->
+            <LinearLayout
+                android:id="@+id/linearlayout_others_education_yop_percntage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:layout_below="@id/edt_other_education_university"
+                android:weightSum="2">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="3dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/year"
+                        android:textColor="@color/textColorPrimary"
+                        android:id="@+id/txt_other_education_year"/>
+                    <EditText
+                        android:id="@+id/edt_other_education_year"
+                        android:layout_width="126dp"
+                        android:singleLine="true"
+                        android:inputType="number"
+android:nextFocusDown="@+id/edt_other_education_perctage"
+                        android:textColor="@color/textColorPrimary"
+                        android:background="@color/color_transparent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <!--Percentage in Graducation-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/percentage"
+                        android:textColor="@color/textColorPrimary"
+                        android:id="@+id/txt_other_education_percentage"/>
+                    <EditText
+                        android:id="@+id/edt_other_education_perctage"
+                        android:layout_width="126dp"
+                        android:singleLine="true"
+                        android:inputType="numberDecimal"
+                        android:imeOptions="actionDone"
+                        android:textColor="@color/textColorPrimary"
+                        android:background="@color/color_transparent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+            <!--&lt;!&ndash;Secondary Education&ndash;&gt;-->
+            <!--&lt;!&ndash;TextView and Edit Txt in Graducation part&ndash;&gt;-->
+            <!--<LinearLayout-->
+            <!--android:id="@+id/linearlayout_12th"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_below="@+id/linearlayout_graducation"-->
+            <!--android:layout_marginTop="10dp">-->
+            <!--<TextView-->
+            <!--android:layout_width="256dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/twelv"-->
+            <!--android:id="@+id/txt_12th" />-->
+            <!--<EditText-->
+            <!--android:id="@+id/edt_12th"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:background="@drawable/spinner_shape"-->
+            <!--android:singleLine="true"-->
+            <!--android:layout_height="wrap_content"/>-->
+            <!--&lt;!&ndash;12th Year&ndash;&gt;-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="311dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:weightSum="2"-->
+            <!--android:layout_marginBottom="8dp">-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="0.5"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:orientation="vertical">-->
+            <!--<TextView-->
+            <!--android:layout_width="135dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/year"-->
+            <!--android:id="@+id/txt_year_12th"/>-->
+            <!--<EditText-->
+            <!--android:singleLine="true"-->
+            <!--android:id="@+id/edt_12th_year"-->
+            <!--android:layout_width="98dp"-->
+            <!--android:background="@drawable/spinner_shape"-->
+            <!--android:layout_height="wrap_content"/>-->
+            <!--</LinearLayout>-->
+            <!--&lt;!&ndash;Percentage in 12th&ndash;&gt;-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:orientation="vertical">-->
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/percentage"-->
+            <!--android:id="@+id/txt_percentage_12th"/>-->
+            <!--<EditText-->
+            <!--android:id="@+id/edt_12th_percntage"-->
+            <!--android:layout_width="119dp"-->
+            <!--android:singleLine="true"-->
+            <!--android:background="@drawable/spinner_shape"-->
+            <!--android:layout_height="wrap_content"/>-->
+            <!--</LinearLayout>-->
+            <!--</LinearLayout>-->
+            <!--<TextView-->
+            <!--android:layout_width="256dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/university_board"-->
+            <!--android:id="@+id/txt_secondary_board" />-->
+            <!--<EditText-->
+            <!--android:id="@+id/edt_secondary_board"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:singleLine="true"-->
+            <!--android:background="@drawable/spinner_shape"-->
+            <!--android:layout_height="wrap_content"/>-->
+            <!--</LinearLayout>-->
+
+            <!--&lt;!&ndash;End of the 12th Education&ndash;&gt;-->
+            <!--&lt;!&ndash;10th Detail&ndash;&gt;-->
+            <!--&lt;!&ndash;TextView and Edit Txt in Graducation part&ndash;&gt;-->
+            <!--<LinearLayout-->
+            <!--android:id="@+id/linearlayout_10th"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_below="@+id/linearlayout_12th"-->
+            <!--android:layout_marginTop="10dp">-->
+            <!--<TextView-->
+            <!--android:layout_width="256dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/tenth"-->
+            <!--android:id="@+id/txt_10th" />-->
+            <!--<EditText-->
+            <!--android:id="@+id/edt_10th"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:singleLine="true"-->
+            <!--android:background="@drawable/spinner_shape"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+            <!--&lt;!&ndash;10th&ndash;&gt;-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="311dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:weightSum="2"-->
+            <!--android:layout_marginBottom="8dp">-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="0.5"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:orientation="vertical">-->
+            <!--<TextView-->
+            <!--android:layout_width="135dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/year"-->
+            <!--android:id="@+id/txt_year_10th"/>-->
+            <!--<EditText-->
+            <!--android:id="@+id/edt_10th_year"-->
+            <!--android:layout_width="98dp"-->
+            <!--android:singleLine="true"-->
+            <!--android:background="@drawable/spinner_shape"-->
+            <!--android:layout_height="wrap_content"/>-->
+            <!--</LinearLayout>-->
+            <!--&lt;!&ndash;Percentage in 10th&ndash;&gt;-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:orientation="vertical">-->
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/percentage"-->
+            <!--android:id="@+id/txt_percentage_10th"/>-->
+            <!--<EditText-->
+            <!--android:layout_width="123dp"-->
+            <!--android:singleLine="true"-->
+            <!--android:id="@+id/edt_10th_percentage"-->
+            <!--android:background="@drawable/spinner_shape"-->
+            <!--android:layout_height="wrap_content"/>-->
+            <!--</LinearLayout>-->
+            <!--</LinearLayout>-->
+            <!--<TextView-->
+            <!--android:layout_width="256dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/university_board"-->
+            <!--android:id="@+id/txt_tenth_board" />-->
+            <!--<EditText-->
+            <!--android:id="@+id/edt_tenth_board"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:singleLine="true"-->
+            <!--android:background="@drawable/spinner_shape"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+            <!--</LinearLayout>-->
 
             <!--Others-->
-        <!--TextView and Edit Txt in Graducation part-->
-         <LinearLayout
-             android:id="@+id/linearlayout_others"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:orientation="vertical"
-             android:layout_below="@+id/linearlayout_10th"
-             android:layout_marginTop="10dp">
-             <TextView
-                 android:layout_width="256dp"
-                 android:layout_height="wrap_content"
-                 android:text="@string/others"
-                 android:id="@+id/txt_others" />
-             <EditText
-                 android:id="@+id/edt_others"
-                 android:layout_width="match_parent"
-                 android:background="@drawable/spinner_shape"
-                 android:layout_height="wrap_content"/>
-             <!--others Year-->
-             <LinearLayout
-                 android:layout_width="311dp"
-                 android:layout_height="wrap_content"
-                 android:orientation="horizontal"
-                 android:weightSum="2">
-                 <LinearLayout
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_weight="1"
-                     android:layout_marginTop="5dp"
-                     android:orientation="vertical">
-                     <TextView
-                         android:layout_width="135dp"
-                         android:layout_height="wrap_content"
-                         android:text="@string/year"
-                         android:id="@+id/txt_ye_others"/>
-                     <EditText
-                         android:id="@+id/edt_others_year"
-                         android:layout_width="98dp"
-                         android:background="@drawable/spinner_shape"
-                         android:layout_height="wrap_content"/>
-                 </LinearLayout>
-                 <!--Percentage in others-->
-                 <LinearLayout
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_weight="1"
-                     android:layout_marginTop="5dp"
+            <!--TextView and Edit Txt in Graducation part-->
 
-                     android:orientation="vertical">
-                     <TextView
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:text="@string/percentage"
-                         android:id="@+id/txt_percentage_others"/>
-                     <EditText
-                         android:layout_width="match_parent"
-                         android:id="@+id/edt_others_percentage"
-                         android:background="@drawable/spinner_shape"
-                         android:layout_height="wrap_content"/>
-                 </LinearLayout>
-             </LinearLayout>
 
-         </LinearLayout>
-
-<!--End of others education-->
-     </RelativeLayout>
-
+            <!--End of others education-->
+        </RelativeLayout>
     </ScrollView>
-   <com.youngindia.jobportal.fonts.Roboto_Regular_Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/nxtbtn"
+    <com.youngindia.jobportal.fonts.Roboto_Regular_Button
+        android:layout_width="250dp"
+        android:layout_height="@dimen/btn_height"
+        android:id="@+id/nxtbtn_qualification"
         android:text="Next"
         android:textSize="@dimen/btn_txtsize"
         android:background="@drawable/btnshape"
         android:textColor="@color/btn_textColor"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
         android:layout_gravity="center_horizontal|bottom" />
 </FrameLayout>

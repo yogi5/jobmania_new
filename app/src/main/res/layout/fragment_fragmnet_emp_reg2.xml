@@ -3,101 +3,112 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgd_light_blue"
-    tools:context="com.youngindia.jobportal.ui.fragmnet_emp_reg2">
+    tools:context="com.youngindia.jobportal.ui.fragmnet_emp_reg2"
+    android:paddingBottom="5dp">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/padding_layout"
-        android:layout_marginTop="20dp"
-        android:id="@+id/scrollview01">
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/activity_horizontal_margin">
-        <com.youngindia.jobportal.fonts.Roboto_Regular
-            android:id="@+id/txt_others_Detail"
+        android:id="@+id/scrollview01"
+        android:layout_marginBottom="@dimen/btn_height">
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/other_detail"
-            android:gravity="center"
-            android:textColor="@color/textColorPrimary"
-            android:layout_below="@id/linearlayout_04"
-            android:textSize="@dimen/lbl_txtsize"/>
-
-        <com.youngindia.jobportal.fonts.Roboto_Regular
-            android:id="@+id/txt_languages"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/languages"
-            android:textColor="@color/textColorPrimary"
-            android:layout_below="@id/txt_others_Detail"
-            android:textSize="@dimen/lbl_txtsize"/>
-        <EditText
-            android:id="@+id/edt_languages"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/edt_height_normal"
-            android:background="@color/color_transparent"
-            android:layout_below="@+id/txt_languages"
-            android:textSize="@dimen/lbl_txtsize"
-            android:singleLine="true"
-            android:layout_marginBottom="13dp"/>
-
-        <com.youngindia.jobportal.fonts.Roboto_Regular
-            android:id="@+id/txt_job_perfernce"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/job_perfernce"
-            android:textColor="@color/textColorPrimary"
-            android:layout_below="@id/edt_languages"
-            android:textSize="@dimen/lbl_txtsize"/>
-        <EditText
-            android:id="@+id/edt_job_perfernce"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/edt_height_normal"
-            android:background="@color/color_transparent"
-            android:layout_below="@+id/txt_job_perfernce"
-            android:textSize="@dimen/lbl_txtsize"
-            android:singleLine="true"
-            android:layout_marginBottom="13dp"/>
-
-        <com.youngindia.jobportal.fonts.Roboto_Regular
-            android:textColor="@color/textColorPrimary"
-            android:id="@+id/tv_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/categories"
-            android:layout_below="@id/edt_job_perfernce"
-            android:textSize="@dimen/lbl_txtsize"/>
-        <LinearLayout
-            android:id="@+id/linearlayout_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/spinner_shape"
-            android:layout_below="@+id/tv_category"
-            android:weightSum="1"
-            android:layout_marginBottom="13dp">
-            <Spinner
-                android:id="@+id/spinner_category"
+            android:layout_height="match_parent">
+            <com.youngindia.jobportal.fonts.Roboto_Regular
+                android:id="@+id/txt_languages"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/categoy_array"
-                android:contextClickable="true"
-                android:textColor="@color/textColorPrimary"/>
-        </LinearLayout>
+                android:text="@string/languages"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/lbl_txtsize"/>
+            <EditText
+                android:id="@+id/edt_languages"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edt_height_normal"
+                android:hint="English,Hindi"
+                android:background="@color/color_transparent"
+                android:layout_below="@+id/txt_languages"
+                android:textSize="@dimen/lbl_txtsize"
+                android:singleLine="true"
+                android:layout_marginBottom="13dp"/>
+            <com.youngindia.jobportal.fonts.Roboto_Regular
+                android:id="@+id/txt_job_perfernce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/job_perfernce"
+                android:textColor="@color/textColorPrimary"
+                android:layout_below="@id/edt_languages"
+                android:textSize="@dimen/lbl_txtsize"/>
+            <RadioGroup
+                android:id="@+id/radio_btn_group_job_perfernce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_job_perfernce"
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/mrgin_btwn_edtText">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/full_time"
+                    android:checked="true"
+                    android:layout_weight="1"
+                    android:id="@+id/radioButton_full_time"/>
+                <RadioButton
+                    android:id="@+id/radioButton_part_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/part_time"
 
-        <!--<com.youngindia.jobportal.fonts.Roboto_Regular-->
+                    android:layout_weight="1"/>
+                <!-- <RadioButton
+                     android:id="@+id/radioButton_distance"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/distance"
+                     android:contextClickable="true"
+                     android:layout_weight="1"/>-->
+            </RadioGroup>
+
+
+            <com.youngindia.jobportal.fonts.Roboto_Regular
+                android:textColor="@color/textColorPrimary"
+                android:id="@+id/tv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categories"
+                android:layout_below="@id/radio_btn_group_job_perfernce"
+                android:textSize="@dimen/lbl_txtsize"/>
+            <LinearLayout
+                android:id="@+id/linearlayout_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/spinner_shape"
+                android:layout_below="@+id/tv_category"
+                android:weightSum="1"
+                android:layout_marginBottom="13dp">
+                <Spinner
+                    android:id="@+id/spinner_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/categoy_array"
+                    android:contextClickable="true"
+                    android:textColor="@color/textColorPrimary"/>
+            </LinearLayout>
+
+            <!--<com.youngindia.jobportal.fonts.Roboto_Regular-->
             <!--android:textColor="@color/textColorPrimary"-->
             <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
             <!--android:id="@+id/experience_TV"-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content" />-->
-        <!--<EditText-->
+            <!--<EditText-->
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="wrap_content"-->
             <!--android:layout_below="@+id/experience_TV"-->
             <!--android:id="@+id/edit_experience"/>-->
-        <!--<SeekBar-->
+            <!--<SeekBar-->
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="wrap_content"-->
             <!--android:id="@+id/seekBar_Experience"-->
@@ -106,119 +117,204 @@
             <!--android:layout_below="@+id/edit_experience"-->
             <!--android:layout_alignParentLeft="true"-->
             <!--android:layout_alignParentStart="true" />-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_physically_challeged"
-            android:text="@string/physically_challeged"
-            android:layout_below="@id/linearlayout_category"
-            android:textSize="@dimen/lbl_txtsize"/>
-        <LinearLayout
-            android:id="@+id/linearlayout_physically_challeged"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-
-            android:layout_below="@+id/tv_physically_challeged"
-            android:weightSum="1"
-            android:layout_marginBottom="13dp">
-
-            <RadioButton
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/yes"
-                android:id="@+id/radiobtn_yes"
-                android:layout_weight="0.5"
-                android:layout_below="@+id/linearlayout_physically_challeged"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-            <RadioButton
+                android:id="@+id/tv_physically_challeged"
+                android:textColor="@color/textColorPrimary"
+                android:text="@string/physically_challeged"
+                android:layout_below="@id/linearlayout_category"
+                android:textSize="@dimen/lbl_txtsize"/>
+            <RadioGroup
+                android:id="@+id/radio_btn_group_physically_challeged"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/tv_physically_challeged"
+                android:weightSum="1"
+                android:layout_marginBottom="13dp">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yes"
+                    android:id="@+id/radiobtn_yes"
+                    android:layout_weight="0.5"
+                    android:layout_below="@+id/radio_btn_group_physically_challeged"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no"
+                    android:id="@+id/radiobtn_no"
+                    android:checked="true"
+                    android:layout_weight="0.5"
+                    android:layout_alignTop="@+id/linearlayout_physically_challeged"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+            </RadioGroup>
+
+
+            <!--<com.youngindia.jobportal.fonts.Roboto_Regular-->
+            <!--android:id="@+id/txt_sponsored_field_name"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/sponsored_field_name"-->
+            <!--android:textColor="@color/textColorPrimary"-->
+            <!--android:layout_below="@id/radio_btn_group_physically_challeged"-->
+            <!--android:textSize="@dimen/lbl_txtsize"/>-->
+            <!--<EditText-->
+            <!--android:id="@+id/edt_sponsored_field_name"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/edt_height_normal"-->
+            <!--android:background="@color/color_transparent"-->
+            <!--android:layout_below="@+id/txt_sponsored_field_name"-->
+            <!--android:textSize="@dimen/lbl_txtsize"-->
+            <!--android:singleLine="true"-->
+            <!--android:layout_marginBottom="13dp"/>-->
+            <!--<com.youngindia.jobportal.fonts.Roboto_Regular-->
+            <!--android:id="@+id/txt_sponsored_field_detailed"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/sponsored_field_detailed"-->
+            <!--android:textColor="@color/textColorPrimary"-->
+            <!--android:layout_below="@id/edt_sponsored_field_name"-->
+            <!--android:textSize="@dimen/lbl_txtsize"/>-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/edt_sponsored_field_detailed"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/edt_height_normal"-->
+            <!--android:background="@color/color_transparent"-->
+            <!--android:layout_below="@+id/txt_sponsored_field_detailed"-->
+            <!--android:textSize="@dimen/lbl_txtsize"-->
+            <!--android:inputType="textMultiLine"-->
+            <!--android:ems="10"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_marginBottom="16dp"/>-->
+
+            <!--<com.youngindia.jobportal.fonts.Roboto_Regular-->
+            <!--android:id="@+id/txt_imgae_upload_link"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Image Upload Link"-->
+            <!--android:textColor="@color/colorPrimary"-->
+            <!--android:layout_marginBottom="@dimen/mrgin_btwn_edtText"-->
+            <!--android:layout_below="@id/edt_sponsored_field_detailed"-->
+            <!--android:textSize="@dimen/lbl_txtsize"/>-->
+
+            <com.youngindia.jobportal.fonts.Roboto_Regular_Button
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/btn_height"
+                android:id="@+id/btn_upload"
+                android:text="Upload Resume"
+                android:textColor="@color/btn_textColor"
+                android:background="@drawable/btnshape"
+                android:layout_below="@+id/radio_btn_group_physically_challeged"
+                android:layout_centerHorizontal="true" />
+            <TextView
+                android:id="@+id/tv_file_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/no"
-                android:id="@+id/radiobtn_no"
-                android:layout_weight="0.5"
-                android:layout_alignTop="@+id/linearlayout_physically_challeged"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
-        </LinearLayout>
+                android:textColor="@color/textColorPrimary"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:layout_below="@+id/btn_upload"
+                android:layout_centerHorizontal="true"/>
 
-        <com.youngindia.jobportal.fonts.Roboto_Regular
-            android:id="@+id/txt_sponsored_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sponsored_field"
-            android:textColor="@color/textColorPrimary"
-            android:gravity="center"
-            android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
-            android:layout_below="@id/linearlayout_physically_challeged"
-            android:textSize="@dimen/lbl_txtsize"/>
-        <com.youngindia.jobportal.fonts.Roboto_Regular
-            android:id="@+id/txt_sponsored_field_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sponsored_field_name"
-            android:textColor="@color/textColorPrimary"
-            android:layout_below="@id/txt_sponsored_field"
-            android:textSize="@dimen/lbl_txtsize"/>
-        <EditText
-            android:id="@+id/edt_sponsored_field_name"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/edt_height_normal"
-            android:background="@color/color_transparent"
-            android:layout_below="@+id/txt_sponsored_field_name"
-            android:textSize="@dimen/lbl_txtsize"
-            android:singleLine="true"
-            android:layout_marginBottom="13dp"/>
-        <com.youngindia.jobportal.fonts.Roboto_Regular
-            android:id="@+id/txt_sponsored_field_detailed"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sponsored_field_detailed"
-            android:textColor="@color/textColorPrimary"
-            android:layout_below="@id/edt_sponsored_field_name"
-            android:textSize="@dimen/lbl_txtsize"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:visibility="gone"
+                android:layout_below="@+id/tv_file_name"
+                android:layout_alignRight="@+id/tv_file_name"
+                android:id="@+id/linearlayoutchangeresume"
+                android:weightSum="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ChangeResume"
+                    android:textAlignment="center"
+                    android:layout_marginLeft="100dp"
+                    android:layout_weight="0.95"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/edit"
+                    android:id="@+id/resume_edit"
+                    android:layout_weight="0.25"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginRight="5dp"/>
+            </LinearLayout>
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/imageView_chnageprofilepic"
+                android:src="@drawable/default_pic"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/linearlayoutchangeresume"
+                android:visibility="gone"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:visibility="gone"
+                android:layout_below="@+id/btn_upload"
+                android:id="@+id/linearlayoutchangepic"
+                android:weightSum="1"
+                android:layout_marginBottom="5dp"
+                android:layout_alignTop="@+id/imageView_chnageprofilepic"
+                android:layout_alignRight="@+id/btn_upload"
+                android:layout_alignEnd="@+id/btn_upload">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Change Pic"
+                    android:textAlignment="center"
+                    android:layout_marginLeft="100dp"
+                    android:layout_weight="0.95"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/edit"
+                    android:layout_weight="0.25"
+                    android:id="@+id/imageView_editPic"
+                    android:layout_marginRight="5dp" />
 
-        <EditText
-            android:id="@+id/edt_sponsored_field_detailed"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/edt_height_normal"
-            android:background="@color/color_transparent"
-            android:layout_below="@+id/txt_sponsored_field_detailed"
-            android:textSize="@dimen/lbl_txtsize"
-            android:inputType="textMultiLine"
-            android:ems="10"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="13dp"/>
+            </LinearLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/btn_height"
+                android:text="Upload Pic"
+                android:layout_marginTop="10dp"
+                android:id="@+id/imageView_chnagePic1"
+                android:textColor="@color/btn_textColor"
+                android:background="@drawable/btnshape"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/linearlayoutchangeresume"/>
 
-        <com.youngindia.jobportal.fonts.Roboto_Regular
-            android:id="@+id/txt_imgae_upload_link"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Image Upload Link"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
-            android:layout_below="@id/edt_sponsored_field_detailed"
-            android:textSize="@dimen/lbl_txtsize"/>
 
-    </RelativeLayout>
+
+        </RelativeLayout>
     </ScrollView>
-    <com.youngindia.jobportal.fonts.Roboto_Regular_Button
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/edt_height_normal"
-            android:id="@+id/btn_upload"
-            android:text="Upload Resume"
-            android:background="@drawable/btnshape"
-            android:textColor="@color/btn_textColor"/>
 
-        <com.youngindia.jobportal.fonts.Roboto_Regular_Button
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/edt_height_normal"
-            android:id="@+id/btn_submit"
-            android:text="Submit"
-            android:layout_below="@id/btn_upload"
-            android:textColor="@color/btn_textColor"
-            android:background="@drawable/btnshape"
-            android:textSize="@dimen/btn_txtsize" />
+    <com.youngindia.jobportal.fonts.Roboto_Regular_Button
+        android:layout_width="250dp"
+        android:layout_height="@dimen/btn_height"
+        android:id="@+id/btn_submit"
+        android:text="Submit"
+        android:textColor="@color/btn_textColor"
+        android:background="@drawable/btnshape"
+        android:textSize="@dimen/btn_txtsize"
+        android:layout_marginBottom="20dp"
+
+        android:layout_gravity="center_horizontal|bottom" />
 </FrameLayout>

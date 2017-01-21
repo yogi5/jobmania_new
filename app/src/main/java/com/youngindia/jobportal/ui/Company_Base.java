@@ -10,22 +10,33 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.youngindia.jobportal.R;
+import com.youngindia.jobportal.database.SessionManager;
 
 public class Company_Base extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
     public static Company_Base instance;
     fragment_companybase fragment_companybase;
+
     fragment_companypostajob fragmentsetting;
+    Toolbar toolbar;
+    String path;
     fragment_companysetting fragment_companysetting;
+    SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_company__base);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        sessionManager=new SessionManager(this);
 //        setSupportActionBar(toolbar);Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Home");
+
         toolbar.setNavigationIcon(R.drawable.toolbar_backbtn);
         setSupportActionBar(toolbar);
 
@@ -68,23 +79,30 @@ public class Company_Base extends AppCompatActivity  implements NavigationView.O
             ft.replace(R.id.frame_container, fragment_companysetting);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
             ft.addToBackStack("tag").commitAllowingStateLoss();//commit();
-        } else if (id == R.id.nav_postajob) {
-            Intent intent =new Intent(Company_Base.this,CompanyDetail.class);
+        } else if (id == R.id.nav_companypostlist) {
+            Intent intent =new Intent(Company_Base.this,CompanyPostedjobslist.class);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-        } else if (id == R.id.nav_shortlisted) {
+        } /*else if (id == R.id.nav_shortlisted) {
             Intent intent =new Intent(Company_Base.this,Company_candidatelist.class);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }  else if (id == R.id.nav_received) {
             Intent intent =new Intent(Company_Base.this,Company_candidatelist.class);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-        }
+        }*/
         else if (id == R.id.nav_faq) {
             Intent intent =new Intent(Company_Base.this,App_Faq.class);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         } else if (id == R.id.nav_promote) {
-
+            shareAppurl(path);
         }else if (id == R.id.logout) {
-            Intent intent =new Intent(Company_Base.this,LoginUser_Activity.class);
+            sessionManager.setLogin(false);
+            Intent intent = new Intent(Company_Base.this,LoginUser_Activity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.putExtra("EXIT", true);
             startActivity(intent);
         }
 
@@ -92,5 +110,13 @@ public class Company_Base extends AppCompatActivity  implements NavigationView.O
         drawer.closeDrawer(GravityCompat.START);
         return true;
 
+    }
+    private void shareAppurl(String path){
+        Intent share = new Intent(android.content.Intent.ACTION_SEND);
+        share.setType("text/plain");
+        share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        share.putExtra(Intent.EXTRA_SUBJECT, "Shared App details");
+        share.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.youngindia.jobportal&hl=en");
+        startActivity(Intent.createChooser(share, "Share link!"));
     }
 }

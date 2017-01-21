@@ -12,9 +12,7 @@ import com.youngindia.jobportal.R;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by anupam on 20-05-2016.
- */
+
 public class Search_Adapter extends ArrayAdapter<Model_Search> {
 
     ArrayList<Model_Search> records =new ArrayList<Model_Search>();
@@ -49,18 +47,15 @@ public class Search_Adapter extends ArrayAdapter<Model_Search> {
 
         TextView textName = (TextView) itemView.findViewById(R.id.txt_jobname1);
 
-        textName.setText(records.get(position).getJobname());
+        textName.setText(records.get(position).getName());
 
         TextView textCompany = (TextView) itemView.findViewById(R.id.txt_jobdetails1);
 
-        textCompany.setText(records.get(position).getQualification());
+        textCompany.setText(records.get(position).getMobile());
 
         TextView textTechnology = (TextView) itemView.findViewById(R.id.txt_jobskill1);
 
-        textTechnology.setText(records.get(position).getLocation());
-
-
-
+        textTechnology.setText(records.get(position).getEmail());
 
         return itemView;
 

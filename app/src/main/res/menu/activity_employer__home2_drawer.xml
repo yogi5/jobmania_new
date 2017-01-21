@@ -11,17 +11,21 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="Profile Setting" />
         <item
-            android:id="@+id/nav_postajob"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Post a Job" />
-        <item
-            android:id="@+id/nav_shortlisted"
+            android:id="@+id/nav_companypostlist"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Shortlisted Candidate" />
-        <item
-            android:id="@+id/nav_received"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Received Candidate" />
+            android:title="Posted Jobs" />
+        <!--   <item
+               android:id="@+id/nav_postajob"
+               android:icon="@drawable/ic_menu_gallery"
+               android:title="Post a Job" />
+           <item
+               android:id="@+id/nav_shortlisted"
+               android:icon="@drawable/ic_menu_slideshow"
+               android:title="Shortlisted Candidate" />
+           <item
+               android:id="@+id/nav_received"
+               android:icon="@drawable/ic_menu_manage"
+               android:title="Received Candidate" />-->
     </group>
 
     <item android:title="Feedback">

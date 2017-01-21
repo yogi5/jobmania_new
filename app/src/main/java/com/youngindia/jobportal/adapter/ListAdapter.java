@@ -13,9 +13,7 @@ import com.youngindia.jobportal.R;
 import java.sql.Array;
 import java.util.ArrayList;
 
-/**
- * Created by anupam on 19-05-2016.
- */
+
 public class ListAdapter extends BaseAdapter {
     private Context mContext;
     public String[]jobname;

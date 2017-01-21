@@ -2,25 +2,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.youngindia.jobportal.ui.frgmnt_setting">
+    tools:context="com.youngindia.jobportal.ui.frgmnt_setting"
+    android:paddingBottom="5dp">
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp">
         <com.mikhaellopez.circularimageview.CircularImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/imageView_chnagePic"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/imageView_chnagePic1"
             android:src="@drawable/default_pic"
-
-
-            android:layout_gravity="center_horizontal|top"
+            android:layout_centerHorizontal="true"
            />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/edit"
+            android:id="@+id/imageView_chnagePic"
+            android:layout_alignRight="@+id/imageView_chnagePic1"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
         <com.youngindia.jobportal.fonts.Roboto_Regular
             android:id="@+id/tv_oldPassword"
             android:textColor="@color/textColorPrimary"
             android:layout_weight="1"
-            android:layout_below="@id/imageView_chnagePic"
+            android:layout_below="@id/imageView_chnagePic1"
             android:textSize="@dimen/lbl_txtsize"
             android:layout_height="wrap_content"
             android:text="@string/old_password"
@@ -77,10 +84,9 @@
             android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
             android:layout_below="@+id/tv_confirmPassword"/>
     </RelativeLayout>
-
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btn_height"
         android:text="Submit"
         android:layout_alignParentRight="true"
         android:id="@+id/btn_submit"
@@ -88,6 +94,4 @@
         android:background="@drawable/btnshape"
         android:textColor="@color/btn_textColor"
         android:layout_gravity="center_horizontal|bottom" />
-
-
 </FrameLayout>

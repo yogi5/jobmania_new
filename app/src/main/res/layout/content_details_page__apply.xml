@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.youngindia.jobportal.ui.DetailsPage_Apply"
+    tools:showIn="@layout/activity_details_page__apply">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_name"
+        android:text="Hello"
+        android:drawableLeft="@drawable/mca1"
+        android:padding="16dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_details"
+        android:padding="16dp"
+        android:drawableLeft="@drawable/sal1"
+        android:layout_below="@+id/txt_name"
+        android:text="Hello" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_skill"
+        android:drawableLeft="@drawable/loc1"
+        android:text="Hello"
+        android:padding="16dp"
+        android:layout_below="@+id/txt_details" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_companyname"
+        android:text="Hello"
+        android:drawableLeft="@drawable/per1"
+        android:padding="16dp"
+        android:layout_below="@+id/txt_skill" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_qualification"
+        android:text="Hello"
+        android:padding="16dp"
+        android:layout_below="@+id/txt_companyname" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_salary"
+        android:text="Hello"
+        android:padding="16dp"
+        android:layout_below="@+id/txt_qualification" />
+    <com.youngindia.jobportal.fonts.Roboto_Regular_Button
+        android:id="@+id/btnApply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apply"
+        android:textColor="@color/btn_textColor"
+        android:background="@drawable/btnshape"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

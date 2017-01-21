@@ -1,76 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:layout_marginTop="20dp"
-    android:background="@color/backgd_light_blue">
-    <com.youngindia.jobportal.fonts.Roboto_Regular
-        android:id="@+id/txt_designation"
+
+
+    >
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:layout_marginTop="80dp">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/txt_designation"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/designation"
         android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/lbl_txtsize"/>
+
+        android:textStyle="bold"
+        android:textSize="@dimen/btn_txtsize"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="@dimen/edt_height_normal"
-        android:background="@color/color_transparent"
+        android:background="@drawable/spinner_shape"
         android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
         android:singleLine="true"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
         android:hint="@string/hint_desgntion"
+
+
         android:id="@+id/autocompleteEditTextView"
         android:layout_below="@+id/txt_designation"/>
-    <com.youngindia.jobportal.fonts.Roboto_Regular
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/txt_qualifiction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/qualification"
         android:textColor="@color/textColorPrimary"
         android:layout_below="@id/autocompleteEditTextView"
-        android:textSize="@dimen/lbl_txtsize"/>
-    <LinearLayout
-        android:id="@+id/linearlayout_qualification"
+        android:textStyle="bold"
+        android:textSize="@dimen/btn_txtsize"/>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_qualification"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/spinner_shape"
         android:layout_below="@+id/txt_qualifiction"
-        android:weightSum="1"
-        android:layout_marginBottom="@dimen/mrgin_btwn_edtText">
-        <Spinner
-            android:id="@+id/qualification"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/linearlayout_qualification"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
-            android:entries="@array/qualification_arrays"/>
-    </LinearLayout>
-    <com.youngindia.jobportal.fonts.Roboto_Regular
+            android:layout_height="@dimen/edt_height_normal"
+            android:orientation="horizontal"
+            android:singleLine="true"
+            android:imeOptions="actionSearch"
+            android:background="@drawable/spinner_shape"
+            android:layout_below="@+id/input_layout_qualification"
+            android:weightSum="1"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:layout_marginBottom="@dimen/mrgin_btwn_edtText">
+            <!--<Spinner-->
+            <!--android:id="@+id/qualification"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="@dimen/mrgin_btwn_edtText"-->
+            <!--android:entries="@array/qualification_arrays"/>-->
+        </EditText>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/txt_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/location"
         android:textColor="@color/textColorPrimary"
         android:layout_weight="1"
-        android:layout_below="@id/linearlayout_qualification"
-        android:textSize="@dimen/lbl_txtsize"/>
-    <LinearLayout
+        android:layout_below="@id/input_layout_qualification"
+        android:textStyle="bold"
+        android:textSize="@dimen/btn_txtsize"/>
+    <EditText
         android:id="@+id/linearlayout_location"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/edt_height_normal"
         android:orientation="horizontal"
+        android:singleLine="true"
+        android:imeOptions="actionSearch"
         android:background="@drawable/spinner_shape"
         android:layout_below="@+id/txt_location"
         android:weightSum="1"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
         android:layout_marginBottom="@dimen/mrgin_btwn_edtText">
-        <Spinner
-            android:id="@+id/location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/country_arrays"
-            android:layout_marginBottom="@dimen/mrgin_btwn_edtText"/>
-    </LinearLayout>
-    <com.youngindia.jobportal.fonts.Roboto_Regular
+        <!--<Spinner-->
+        <!--android:id="@+id/location"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:entries="@array/country_arrays"-->
+        <!--android:layout_marginBottom="@dimen/mrgin_btwn_edtText"/>-->
+    </EditText>
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/txt_salary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,28 +115,146 @@
         android:textColor="@color/textColorPrimary"
         android:layout_weight="1"
         android:layout_below="@id/linearlayout_location"
-        android:textSize="@dimen/lbl_txtsize"/>
-    <LinearLayout
+        android:textStyle="bold"
+        android:textSize="@dimen/btn_txtsize"/>
+    <EditText
         android:id="@+id/linearlayout_slary"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/edt_height_normal"
         android:orientation="horizontal"
         android:background="@drawable/spinner_shape"
         android:layout_below="@+id/txt_salary"
+        android:visibility="gone"
         android:weightSum="1"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
         android:layout_marginBottom="@dimen/mrgin_btwn_edtText">
-        <Spinner
-            android:id="@+id/salary"
+        <!--<Spinner-->
+        <!--android:id="@+id/salary"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:entries="@array/salary"/>-->
+    </EditText>
+    <LinearLayout
+        android:id="@+id/linearlayoutsalary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/txt_salary"
+        android:weightSum="2">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:background="@drawable/spinner_shape">
+            <Spinner
+                android:id="@+id/salaryyear"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/edt_height_normal"
+                android:layout_weight="1"
+                android:entries="@array/salary">
+            </Spinner>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:background="@drawable/spinner_shape">
+            <Spinner
+                android:id="@+id/salaryyear1"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/edt_height_normal"
+                android:layout_weight="1"
+                android:entries="@array/salary1">
+            </Spinner>
+        </LinearLayout>
+    </LinearLayout>
+    <RadioGroup
+        android:id="@+id/radio_btn_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearlayoutsalary"
+        android:weightSum="2"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/mrgin_btwn_edtText">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fresher"
+            android:contextClickable="true"
+            android:textSize="@dimen/btn_txtsize"
+            android:textColor="@color/textColorPrimary"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:id="@+id/radioButton_fresher"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Experience"
+            android:contextClickable="true"
+
+            android:textSize="@dimen/btn_txtsize"
+            android:textColor="@color/textColorPrimary"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:id="@+id/radioButton_experience" />
+    </RadioGroup>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearlayout_experience"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_below="@+id/radio_btn_group">
+        <android.support.v7.widget.AppCompatTextView
+            android:textColor="@color/textColorPrimary"
+            android:layout_weight="1"
+            android:textSize="@dimen/btn_txtsize"
+            android:text="@string/total_experecnce"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/salary"/>
+            android:layout_below="@+id/radio_btn_group"
+            android:textStyle="bold"
+
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/experience_TV"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_below="@+id/experience_TV"
+            android:id="@+id/edit_experience"
+            android:layout_height="@dimen/edt_height_normal"
+            android:background="@color/color_transparent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar_Experience"
+            android:max="50"
+            android:indeterminate="false"
+            android:progressDrawable="@drawable/progress_bar"
+            android:thumb="@drawable/seekbar_thumb"
+            android:layout_below="@+id/edit_experience"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
     </LinearLayout>
-    <com.youngindia.jobportal.fonts.Roboto_Regular_Button
+    </RelativeLayout>
+    </ScrollView>
+
+    <android.support.v7.widget.AppCompatButton
         android:id="@+id/btnSubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/search"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:text="@string/search1"
+        android:textColor="@color/btn_textColor"
         android:background="@drawable/btnshape"
+        android:textSize="@dimen/btn_txtsize"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"/>
 </RelativeLayout>

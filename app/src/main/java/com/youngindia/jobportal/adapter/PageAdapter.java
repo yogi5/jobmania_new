@@ -26,6 +26,7 @@ public class PageAdapter extends FragmentStatePagerAdapter {
             switch (position) {
                 case 0:
                    Tab1 tab1 = new Tab1();
+
                     return tab1;
                 case 1:
                     Tab2 tab2 = new Tab2();

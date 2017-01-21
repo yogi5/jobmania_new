@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/imagejob6">
+
+        <TextView
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:id="@+id/txtheader"
+    android:gravity="center"
+    android:textSize="18dp"
+            android:textStyle="italic"
+    android:textColor="@color/colorWhite"
+            android:background="@color/colorPrimary"
+    android:text="JOBBY"
+    android:layout_marginBottom="40dp"/>
+
+        <Button
+        android:id="@+id/btnok"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:background="@color/btn_color"
+        android:layout_centerInParent="true"
+        android:text="OK"
+        android:layout_marginBottom="30dp"
+        android:textColor="@color/colorWhite"
+        android:layout_alignParentBottom="true"/>
+
+        <TextView
+            android:text="Please select an option to login as:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:textSize="17dp"
+            android:textColor="#ff8000"
+            android:layout_below="@+id/txtheader"
+            android:layout_centerHorizontal="true" />
+
+        <RadioGroup
+            android:id="@+id/radiogroup1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_below="@+id/textView4"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="21dp">
+            <RadioButton
+                android:id="@+id/btncandidate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtheader"
+                android:text="Candidate"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:textSize="20dp"
+                android:checked="true"
+                android:textColor="#5996a6"/>
+            <RadioButton
+                android:id="@+id/btncompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btncandidate"
+                android:textColor="#5996a6"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:textSize="20dp"
+                android:text="Company" />
+            <RadioButton
+                android:id="@+id/btnfranchise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btncompany"
+                android:textColor="#5996a6"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:textSize="20dp"
+                android:text="Franchise" />
+            <RadioButton
+                android:id="@+id/btndailywagers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnfranchise"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:textSize="20dp"
+                android:textColor="#5996a6"
+                android:text="DailyWagers"
+                android:layout_marginBottom="20dp"/>
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="100dp"
+                android:layout_height="192dp"
+                android:src="@drawable/logoyoungindia" />
+        </RadioGroup>
+
+
+</RelativeLayout>

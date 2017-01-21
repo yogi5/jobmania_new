@@ -6,22 +6,26 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
             android:title="Home" />
-        <item
+       <!-- <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Profile Setting" />
+            android:title="Setting" />-->
         <item
             android:id="@+id/nav_inbox"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Inbox" />
+            android:title="Profile" />
         <item
+            android:id="@+id/nav_changepassword"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Change Password" />
+        <!--  <item
             android:id="@+id/nav_newjob"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="New Job" />
-        <item
+            android:title="New Job" />-->
+      <!--  <item
             android:id="@+id/nav_recommendedjob"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Recommended job" />
+            android:title="Recommended job" />-->
     </group>
 
     <item android:title="Feedback">

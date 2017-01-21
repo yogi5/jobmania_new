@@ -1,89 +1,96 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.youngindia.jobportal.ui.fragment_companysetting">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView_chnagePic"
-            android:background="@drawable/default_pic"
-            android:layout_gravity="center_horizontal|top" />
-        <com.youngindia.jobportal.fonts.Roboto_Regular
-            android:id="@+id/tv_oldPassword"
-            android:textColor="@color/textColorPrimary"
-            android:layout_weight="1"
-            android:layout_below="@id/imageView_chnagePic"
-            android:textSize="@dimen/lbl_txtsize"
-            android:layout_height="wrap_content"
-            android:text="@string/old_password"
-            android:layout_width="match_parent"
-            android:layout_margin="@dimen/fab_margin"/>
-        <EditText
-            android:id="@+id/ED_oldPassword"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/edt_height_normal"
-            android:layout_weight="2"
-            android:background="@color/color_transparent"
-            android:textSize="@dimen/lbl_txtsize"
-            android:singleLine="true"
-            android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
-            android:layout_below="@+id/tv_oldPassword"/>
-        <com.youngindia.jobportal.fonts.Roboto_Regular
-            android:id="@+id/tv_newpassword"
-            android:textColor="@color/textColorPrimary"
-            android:layout_weight="1"
-            android:layout_below="@id/ED_oldPassword"
-            android:textSize="@dimen/lbl_txtsize"
-            android:layout_height="wrap_content"
-            android:text="@string/new_password"
-            android:layout_width="match_parent"
-            android:layout_margin="@dimen/fab_margin"/>
-        <EditText
-            android:id="@+id/ED_newPassword"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/edt_height_normal"
-            android:background="@color/color_transparent"
-            android:layout_weight="2"
-            android:textSize="@dimen/lbl_txtsize"
-            android:singleLine="true"
-            android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
-            android:layout_below="@+id/tv_newpassword"/>
-        <com.youngindia.jobportal.fonts.Roboto_Regular
-            android:id="@+id/tv_confirmPassword"
-            android:textColor="@color/textColorPrimary"
-            android:layout_weight="1"
-            android:layout_below="@id/ED_newPassword"
-            android:textSize="@dimen/lbl_txtsize"
-            android:layout_height="wrap_content"
-            android:text="@string/confirm_password"
-            android:layout_width="match_parent"
-            android:layout_margin="@dimen/fab_margin"/>
-        <EditText
-            android:id="@+id/ED_confirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/edt_height_normal"
-            android:background="@color/color_transparent"
-            android:layout_weight="2"
-            android:textSize="@dimen/lbl_txtsize"
-            android:singleLine="true"
-            android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
-            android:layout_below="@+id/tv_confirmPassword"/>
-    </RelativeLayout>
+    <!--<RelativeLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="16dp">-->
+    <!--<com.youngindia.jobportal.fonts.Roboto_Regular-->
+            <!--android:id="@+id/tv_oldPassword"-->
+            <!--android:textColor="@color/textColorPrimary"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_below="@id/imageView_chnagePic"-->
+            <!--android:textSize="@dimen/lbl_txtsize"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/old_password"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_margin="@dimen/fab_margin"/>-->
+        <!--<EditText-->
+            <!--android:id="@+id/ED_oldPassword"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/edt_height_normal"-->
+            <!--android:layout_weight="2"-->
+            <!--android:background="@color/color_transparent"-->
+            <!--android:textSize="@dimen/lbl_txtsize"-->
+            <!--android:singleLine="true"-->
+            <!--android:layout_marginBottom="@dimen/mrgin_btwn_edtText"-->
+            <!--android:layout_below="@+id/tv_oldPassword"/>-->
+        <!--<com.youngindia.jobportal.fonts.Roboto_Regular-->
+            <!--android:id="@+id/tv_newpassword"-->
+            <!--android:textColor="@color/textColorPrimary"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_below="@id/ED_oldPassword"-->
+            <!--android:textSize="@dimen/lbl_txtsize"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/new_password"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_margin="@dimen/fab_margin"/>-->
+        <!--<EditText-->
+            <!--android:id="@+id/ED_newPassword"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/edt_height_normal"-->
+            <!--android:background="@color/color_transparent"-->
+            <!--android:layout_weight="2"-->
+            <!--android:textSize="@dimen/lbl_txtsize"-->
+            <!--android:singleLine="true"-->
+            <!--android:layout_marginBottom="@dimen/mrgin_btwn_edtText"-->
+            <!--android:layout_below="@+id/tv_newpassword"/>-->
+        <!--<com.youngindia.jobportal.fonts.Roboto_Regular-->
+            <!--android:id="@+id/tv_confirmPassword"-->
+            <!--android:textColor="@color/textColorPrimary"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_below="@id/ED_newPassword"-->
+            <!--android:textSize="@dimen/lbl_txtsize"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/confirm_password"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_margin="@dimen/fab_margin"/>-->
+        <!--<EditText-->
+            <!--android:id="@+id/ED_confirmPassword"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/edt_height_normal"-->
+            <!--android:background="@color/color_transparent"-->
+            <!--android:layout_weight="2"-->
+            <!--android:textSize="@dimen/lbl_txtsize"-->
+            <!--android:singleLine="true"-->
+            <!--android:layout_marginBottom="@dimen/mrgin_btwn_edtText"-->
+            <!--&lt;!&ndash;android:layout_below="@+id/tv_confirmPassword"/>&ndash;&gt;-->
+    <!--</RelativeLayout>-->
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:text="Submit"
-        android:layout_alignParentRight="true"
         android:id="@+id/btn_submit"
         android:textSize="@dimen/btn_txtsize"
         android:background="@drawable/btnshape"
         android:textColor="@color/btn_textColor"
-        android:layout_gravity="center_horizontal|bottom" />
-</FrameLayout>
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/imageView_chnagePic"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:id="@+id/imageView_chnagePic"
+        android:background="@drawable/default_pic"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp" />
+</RelativeLayout>

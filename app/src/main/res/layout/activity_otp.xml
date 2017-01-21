@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    tools:context="com.youngindia.jobportal.ui.OTPActivity"
+    android:background="@drawable/imagejob6">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_centerInParent="true"
+
+        android:src="@drawable/logoyoungindia"  />
+    <com.youngindia.jobportal.fonts.Roboto_Regular
+        android:id="@+id/code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter code"
+        android:layout_below="@+id/toolbar"
+        android:textColor="@color/textColorPrimary"
+
+        android:layout_marginTop="30dp"
+        android:layout_weight="1"
+        android:textSize="@dimen/lbl_txtsize"/>
+    <EditText
+        android:id="@+id/edt_code"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edt_height"
+        android:background="@color/btn_textColor"
+        android:layout_below="@+id/code"
+        android:layout_weight="2"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:textSize="@dimen/lbl_txtsize"
+        android:singleLine="true"/>
+    <com.youngindia.jobportal.fonts.Roboto_Regular_Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="submit"
+        android:layout_marginTop="@dimen/btn_logintopmargin"
+        android:background="@drawable/btnshape"
+        android:layout_below="@+id/edt_code"
+        android:textSize="@dimen/btn_txtsize"
+        android:textColor="@color/btn_textColor"/>
+
+</RelativeLayout>
