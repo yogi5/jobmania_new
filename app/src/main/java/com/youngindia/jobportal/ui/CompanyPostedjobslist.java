@@ -64,9 +64,9 @@ public class CompanyPostedjobslist extends AppCompatActivity {
     int value=0;
     int value22=0;
     RadioButton radiobuttonfresher,radiobuttonexperience,radiobuttonboth;
-    String compname,jobname,jobdetails,jobskill,str_jobname,str_jobdetails,str_jobqualification,str_joblocation,str_salary,str_experience,exp,str_status,
-            salaryfirst,salarysecond,salaryedited,status;
-    EditText edt_jobname,edt_jobdetails,edt_jobqualification,edt_location,edt_exp,edt_salary;
+    String compname,jobname,jobdetails,jobskill,str_jobname,str_jobdetails,str_jobqualification,str_joblocation,str_salary,exp,str_status,
+            salaryfirst,salarysecond,salaryedited,status,str_id,str_experience;
+    EditText edt_jobname,edt_jobdetails,edt_jobqualification,edt_location,edt_exp,edt_salary,edt_experience;
     RelativeLayout linearLayout_preview;
     //Spinner spinner_year,spinner_month;
     Button btnok;
@@ -101,6 +101,7 @@ public class CompanyPostedjobslist extends AppCompatActivity {
         radiobuttonexperience=(RadioButton)dialog_preview.findViewById(R.id.radioButton_experience);
         radiobuttonboth=(RadioButton)dialog_preview.findViewById(R.id.radioButton_both);
         edt_jobname=(EditText)dialog_preview.findViewById(R.id.edt_job);
+        edt_experience=(EditText)dialog_preview.findViewById(R.id.experienceedit);
         edt_jobdetails=(EditText)dialog_preview.findViewById(R.id.edt_jobDetails);
         edt_jobqualification=(EditText)dialog_preview.findViewById(R.id.edt_keySkills);
         edt_location=(EditText)dialog_preview.findViewById(R.id.lin1);
@@ -343,14 +344,16 @@ public class CompanyPostedjobslist extends AppCompatActivity {
         str_joblocation=searchlist_appliedjob.get(value).getLocation();
         str_salary=searchlist_appliedjob.get(value).getSalary();
         compname=searchlist_appliedjob.get(value).getCompanyname();
-
+        str_experience=searchlist_appliedjob.get(value).getExp();
         str_experience=searchlist_appliedjob.get(value).getExp();
         str_status=searchlist_appliedjob.get(value).getStatus();
+        str_id=searchlist_appliedjob.get(value).getId();
         //ss=searchlist_appliedjob.get(value).
         edt_jobname.setText(str_jobname);
         edt_jobdetails.setText(str_jobdetails);
         edt_jobqualification.setText(str_jobqualification);
         edt_location.setText(str_joblocation);
+        edt_experience.setText(str_experience);
         //String ss=str_salary;
         String ss1=str_experience;
         String ss=str_status;
@@ -363,7 +366,7 @@ public class CompanyPostedjobslist extends AppCompatActivity {
         {
             radiobuttonexperience.setChecked(true);
         }
-        if(str_experience.equals("both"))
+        if(str_status.equals("both"))
         {
             radiobuttonboth.setChecked(true);
         }
@@ -414,6 +417,7 @@ public class CompanyPostedjobslist extends AppCompatActivity {
                 String jobquali=edt_jobqualification.getText().toString();
                 String jobloc=edt_location.getText().toString();
                 String jobsal=edt_salary.getText().toString();
+                String jobexp=edt_experience.getText().toString();
 //                String jobexp=edt_exp.getText().toString();
                 if(radiobuttonfresher.isChecked())
                 {
@@ -429,7 +433,7 @@ public class CompanyPostedjobslist extends AppCompatActivity {
                 }
 
              //   registerUser( jobname,jobdetails,jobqualification,companyname,salary,location,experiencevalue,totalexperience);
-                registerUser(jobnm,jobdet,jobquali,username,jobsal,jobloc,status);
+                registerUser(jobnm,jobdet,jobquali,username,jobsal,jobloc,status,str_id,jobexp);
             }
         });
         dialog_preview.setCancelable(true);
@@ -517,7 +521,8 @@ public class CompanyPostedjobslist extends AppCompatActivity {
                                         searchData.getString("salary"),
                                         searchData.getString("exp"),
                                         searchData.getString("status"),
-                                searchData.getString(("companyname")));
+                                searchData.getString("companyname"),
+                                        searchData.getString("id"));
                                 searchlist_appliedjob.add(p);
                             }
                             adapter = new CompanyPostedAdapter(CompanyPostedjobslist.this, R.layout.customcompanyposted, searchlist_appliedjob);
@@ -543,6 +548,7 @@ public class CompanyPostedjobslist extends AppCompatActivity {
                             });
                             builder1.show();
                             // finish();
+
                         }
                     } catch (JSONException e) {  e.printStackTrace();  }
                 }
@@ -567,7 +573,7 @@ public class CompanyPostedjobslist extends AppCompatActivity {
     }
 
     private void registerUser(final String jobname, final String jobdetails, final String jobqualification, final String companyname,
-                              final String salary, final String location, final String experiencevalue) {
+                              final String salary, final String location, final String experiencevalue, final String companypostid,final String experienceneeded) {
         //   , final String highereducation, final String highereducation1
         // Tag used to cancel the request
         String tag_string_req = "req_register";
@@ -668,7 +674,8 @@ public class CompanyPostedjobslist extends AppCompatActivity {
                 params.put("salary",salary);
                 params.put("location",location);
                 params.put("status",experiencevalue);
-               // params.put("totalexp",totalexp);
+               params.put("id",companypostid);
+                params.put("exp",experienceneeded);
                 return params;
             }
 
@@ -677,6 +684,10 @@ public class CompanyPostedjobslist extends AppCompatActivity {
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
         //finish();
+        if(adapter!=null)
+        {
+            adapter.clear();
+        }
     }
 
     private void showDialog() {

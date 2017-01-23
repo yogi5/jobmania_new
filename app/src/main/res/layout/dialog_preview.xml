@@ -297,7 +297,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_below="@+id/tv_salary"
                     android:weightSum="2">
                     <android.support.design.widget.TextInputLayout
@@ -318,6 +318,33 @@
                             android:background="@color/color_transparent">
                         </EditText>
                     </android.support.design.widget.TextInputLayout>
+
+                    <com.youngindia.jobportal.fonts.Roboto_Regular
+                        android:id="@+id/tv_exp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Experience Needed"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="@dimen/lbl_txtsize" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/experience"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:id="@+id/experienceedit"
+                            android:textSize="14sp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
+                            android:singleLine="true"
+                            android:background="@color/color_transparent">
+                        </EditText>
+                    </android.support.design.widget.TextInputLayout>
+
+
                     <!--<LinearLayout-->
                     <!--android:layout_width="wrap_content"-->
                     <!--android:layout_height="wrap_content"-->
