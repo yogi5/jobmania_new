@@ -11,6 +11,10 @@
     <string name="btn_login">Login</string>
     <string name="title_activity_employee__home">Employee_HomeActivity</string>
 
+    <string name="date_label_set">Press the button to set the date</string>
+    <string name="date_button_set">Set Date</string>
+    <string name="date_view_set">The Date is: </string>
+    <string name="date_selected"></string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

@@ -2,6 +2,7 @@ package com.youngindia.jobportal.ui.app;
 
 public class AppConfig {
     public static final String URL_COMPANYPOST ="http://youngindiagroup.in/jobportal/companypost.php" ;
+    public static final String URL_UPDATECOMPANYPOST ="http://youngindiagroup.in/jobportal/updatecompanypost.php" ;
     public static final String APPLIED_JOBS ="http://youngindiagroup.in/jobportal/canapplydata.php";
     public static final String KEY_COMPANY_LOCATION ="companylocation";
     public static final String SHORTLISTEDCANDIDATE ="http://youngindiagroup.in/jobportal/comshortdata.php";

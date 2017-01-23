@@ -4,15 +4,17 @@ package com.youngindia.jobportal.adapter;
  * Created by User on 10/6/2016.
  */
 public class Model_CompanyPostedJobs {
-    private String  jobname,jobdetails,jobqualification,location,salary,exp;
+    private String  jobname,jobdetails,jobqualification,location,salary,exp,status,companyname;
 
-    public Model_CompanyPostedJobs(String jobname, String jobdetails, String jobqualification, String location, String salary, String exp) {
+    public Model_CompanyPostedJobs(String jobname, String jobdetails, String jobqualification, String location, String salary, String exp,String status,String companyname) {
         this.jobname = jobname;
         this.jobdetails = jobdetails;
         this.jobqualification = jobqualification;
         this.location = location;
         this.salary = salary;
         this.exp = exp;
+        this.status=status;
+        this.companyname=companyname;
     }
 
     public String getJobname() {
@@ -61,5 +63,21 @@ public class Model_CompanyPostedJobs {
 
     public void setExp(String exp) {
         this.exp = exp;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getCompanyname() {
+        return companyname;
+    }
+
+    public void setCompanyname(String companyname) {
+        this.companyname = companyname;
     }
 }

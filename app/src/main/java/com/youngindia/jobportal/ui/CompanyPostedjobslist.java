@@ -1,12 +1,15 @@
 package com.youngindia.jobportal.ui;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,9 +18,11 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -44,6 +49,7 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,11 +63,12 @@ public class CompanyPostedjobslist extends AppCompatActivity {
     Context ctx;
     int value=0;
     int value22=0;
-    String jobname,jobdetails,jobskill,str_jobname,str_jobdetails,str_jobqualification,str_joblocation,str_salary,str_experience,exp,
-            salaryfirst,salarysecond,salaryedited;
+    RadioButton radiobuttonfresher,radiobuttonexperience,radiobuttonboth;
+    String compname,jobname,jobdetails,jobskill,str_jobname,str_jobdetails,str_jobqualification,str_joblocation,str_salary,str_experience,exp,str_status,
+            salaryfirst,salarysecond,salaryedited,status;
     EditText edt_jobname,edt_jobdetails,edt_jobqualification,edt_location,edt_exp,edt_salary;
     RelativeLayout linearLayout_preview;
-    Spinner spinner_year,spinner_month;
+    //Spinner spinner_year,spinner_month;
     Button btnok;
     Dialog dialog_preview;
     private  final String TAG = CompanyPostedjobslist.class.getSimpleName();
@@ -72,11 +79,16 @@ public class CompanyPostedjobslist extends AppCompatActivity {
         setContentView(R.layout.activity_company_postedjobslist);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Posted Jobs");
+
         toolbar.setTitleTextColor(getResources().getColor(R.color.btn_textColor));
         toolbar.setNavigationIcon(R.drawable.toolbar_backbtn);
         session = new SessionManager(this);
+//        sessionManager=new SessionManager(this);
+//        HashMap<String, String> user1=sessionManager.getUsername();
+//        companyusername = user1.get(SessionManager.KEY_NAME);
         HashMap<String, String> user1=session.getUsername();
         username = user1.get(SessionManager.KEY_NAME);
+        String uu=username;
         pDialog=new ProgressDialog(this);
         pDialog.setMessage("Searching ...");
         calljson();
@@ -85,12 +97,16 @@ public class CompanyPostedjobslist extends AppCompatActivity {
         dialog_preview.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog_preview.setContentView(R.layout.dialog_preview);
         btnok=(Button) dialog_preview.findViewById(R.id.btn_nxt);
+        radiobuttonfresher=(RadioButton)dialog_preview.findViewById(R.id.radioButton_fresher);
+        radiobuttonexperience=(RadioButton)dialog_preview.findViewById(R.id.radioButton_experience);
+        radiobuttonboth=(RadioButton)dialog_preview.findViewById(R.id.radioButton_both);
         edt_jobname=(EditText)dialog_preview.findViewById(R.id.edt_job);
         edt_jobdetails=(EditText)dialog_preview.findViewById(R.id.edt_jobDetails);
         edt_jobqualification=(EditText)dialog_preview.findViewById(R.id.edt_keySkills);
         edt_location=(EditText)dialog_preview.findViewById(R.id.lin1);
-        spinner_year=(Spinner) dialog_preview.findViewById(R.id.salaryyear);
-        spinner_month=(Spinner) dialog_preview.findViewById(R.id.salaryyear1);
+        edt_salary=(EditText)dialog_preview.findViewById(R.id.salaryedit);
+//        spinner_year=(Spinner) dialog_preview.findViewById(R.id.salaryyear);
+//        spinner_month=(Spinner) dialog_preview.findViewById(R.id.salaryyear1);
 //        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -326,11 +342,31 @@ public class CompanyPostedjobslist extends AppCompatActivity {
         str_jobqualification=searchlist_appliedjob.get(value).getJobqualification();
         str_joblocation=searchlist_appliedjob.get(value).getLocation();
         str_salary=searchlist_appliedjob.get(value).getSalary();
+        compname=searchlist_appliedjob.get(value).getCompanyname();
+
         str_experience=searchlist_appliedjob.get(value).getExp();
+        str_status=searchlist_appliedjob.get(value).getStatus();
+        //ss=searchlist_appliedjob.get(value).
         edt_jobname.setText(str_jobname);
         edt_jobdetails.setText(str_jobdetails);
         edt_jobqualification.setText(str_jobqualification);
         edt_location.setText(str_joblocation);
+        //String ss=str_salary;
+        String ss1=str_experience;
+        String ss=str_status;
+        String dd="dd";
+        if(str_status.equals("fresher"))
+        {
+            radiobuttonfresher.setChecked(true);
+        }
+        if(str_status.equals("experience"))
+        {
+            radiobuttonexperience.setChecked(true);
+        }
+        if(str_experience.equals("both"))
+        {
+            radiobuttonboth.setChecked(true);
+        }
 
     }
 
@@ -346,169 +382,301 @@ public class CompanyPostedjobslist extends AppCompatActivity {
         edt_jobdetails.setFocusable(b);
         edt_jobqualification.setFocusable(b);
         edt_location.setFocusable(b);
-                    if(!str_salary.isEmpty() && !str_salary.equals(null) && !str_salary.equals("00")) {
-                        salaryyear11 = str_salary.substring(0, Math.min(str_salary.length(), 4));
-                        String[] ap = getResources().getStringArray(R.array.salary);
-                        for (int i = 0; i < ap.length; i++) {
-                            if (spinner_year.getItemAtPosition(i).toString().equals(salaryyear11)) {
-                                spinner_year.setSelection(i);
-                                break;
-                            }
-                        }
-                        salary22 = str_salary.substring(4, Math.min(str_salary.length(), 15));
-                        String[] ap1 = getResources().getStringArray(R.array.salary1);
-                        for (int i = 0; i < ap1.length; i++) {
-                            if (spinner_month.getItemAtPosition(i).toString().equals(salary22)) {
-                                spinner_month.setSelection(i);
-                                break;
-                            }
-                        }
-                    }else {
-                        spinner_year.setSelection(0);
-                        spinner_month.setSelection(0);
-                    }
-                        dialog_preview.show();
-                        btnok.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog_preview.dismiss();
-                            }
-                        });
+        edt_salary.setText(str_salary);
+//        if(!str_salary.isEmpty() && !str_salary.equals(null) && !str_salary.equals("00")) {
+//            salaryyear11 = str_salary.substring(0, Math.min(str_salary.length(), 4));
+//            String[] ap = getResources().getStringArray(R.array.salary);
+//            for (int i = 0; i < ap.length; i++) {
+//                if (spinner_year.getItemAtPosition(i).toString().equals(salaryyear11)) {
+//                    spinner_year.setSelection(i);
+//                    break;
+//                }
+//            }
+//            salary22 = str_salary.substring(4, Math.min(str_salary.length(), 15));
+//            String[] ap1 = getResources().getStringArray(R.array.salary1);
+//            for (int i = 0; i < ap1.length; i++) {
+//                if (spinner_month.getItemAtPosition(i).toString().equals(salary22)) {
+//                    spinner_month.setSelection(i);
+//                    break;
+//                }
+//            }
+//        }else {
+//            spinner_year.setSelection(0);
+//            spinner_month.setSelection(0);
+//        }
+        dialog_preview.show();
+        btnok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog_preview.dismiss();
+                String jobnm=edt_jobname.getText().toString();
+                String jobdet=edt_jobdetails.getText().toString();
+                String jobquali=edt_jobqualification.getText().toString();
+                String jobloc=edt_location.getText().toString();
+                String jobsal=edt_salary.getText().toString();
+//                String jobexp=edt_exp.getText().toString();
+                if(radiobuttonfresher.isChecked())
+                {
+                    status="fresher";
+                }
+                if(radiobuttonexperience.isChecked())
+                {
+                    status="experience";
+                }
+                if(radiobuttonboth.isChecked())
+                {
+                    status="both";
+                }
+
+             //   registerUser( jobname,jobdetails,jobqualification,companyname,salary,location,experiencevalue,totalexperience);
+                registerUser(jobnm,jobdet,jobquali,username,jobsal,jobloc,status);
+            }
+        });
         dialog_preview.setCancelable(true);
 
     }
 
     public void calljsontoDelete(final int value, String string, String toString, String s) {
         setEditextMode(value);
-        showDialog();
-        String url = AppConfig.COMPANYDELETEPOST +"jobname="+string
-                +"&jobdetails="+toString
-                +"&jobqualification="+ s
-                +"&companyname="+username;
-        url=url.replaceAll(" ", "%20");
-        StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response)
-            {
-                hideDialog();
-                try {
-                    JSONObject jObj = new JSONObject(response);
-                    Boolean error=jObj.getBoolean("status");
-                    if (!error) {
-                        Toast.makeText(getApplicationContext(),"Successfully",Toast.LENGTH_SHORT).show();
-                        searchlist_appliedjob.remove(value);
-                        adapter.notifyDataSetChanged();
-                        onRestart1();
-//                        public void refresh(View view){          //refresh is onClick name given to the button
-//                            onRestart();
-//                        }
-//
-//                        @Override
-//                        protected void onRestart() {
-//
-//                            // TODO Auto-generated method stub
-//                            super.onRestart();
-//                            Intent i = new Intent(lala.this, lala.class);  //your class
-//                            startActivity(i);
-//                            finish();
-//
-//                        }
-                    }
-                    else
-                    {
-                        Toast.makeText(getApplicationContext(),"not Successfully",Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {  e.printStackTrace();  }
-            }
-        },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        hideDialog();
-                        Toast.makeText(getApplicationContext(),error.getMessage().toString(),Toast.LENGTH_LONG).show();
-                    }
-                });
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        // Toast.makeText(getApplicationContext(),"sorry server is down",Toast.LENGTH_LONG).show();
-        requestQueue.add(stringRequest);
+        // showDialog();
+
+        if(isNetworkAvailable()==true) {
+
+
+            String url = AppConfig.COMPANYDELETEPOST +"jobname="+string
+                    +"&jobdetails="+toString
+                    +"&jobqualification="+ s
+                    +"&companyname="+username;
+            url=url.replaceAll(" ", "%20");
+            StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response)
+                {
+                    hideDialog();
+                    try {
+                        JSONObject jObj = new JSONObject(response);
+                        Boolean error=jObj.getBoolean("status");
+                        if (!error) {
+                            Toast.makeText(getApplicationContext(),"Successfully Deleted",Toast.LENGTH_SHORT).show();
+                            searchlist_appliedjob.remove(value);
+                            adapter.notifyDataSetChanged();
+
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(),"not Successfully",Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {  e.printStackTrace();  }
+                }
+            },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            hideDialog();
+                            Toast.makeText(getApplicationContext(),error.getMessage().toString(),Toast.LENGTH_LONG).show();
+                        }
+                    });
+            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+            // Toast.makeText(getApplicationContext(),"sorry server is down",Toast.LENGTH_LONG).show();
+            requestQueue.add(stringRequest);
+
+        } else {Toast.makeText(getApplicationContext(),
+                "Please check the Internet Connection!", Toast.LENGTH_LONG)
+                .show();}
+
     }
 
-                        protected void onRestart1() {
-
-                            // TODO Auto-generated method stub
-                            super.onRestart();
-                            Intent i = new Intent(CompanyPostedjobslist.this, CompanyPostedjobslist.class);  //your class
-                            startActivity(i);
-                            finish();
-
-                        }
-
     private void calljson() {
-        showDialog();
-        String approve="true";
-        String url = AppConfig.COMPANYPOSTEDJOBS+"companyname="+username
-                +"&approve="+approve;
 
-        url=url.replaceAll(" ", "%20");
-        StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response)
-            {
-                hideDialog();
-                try {
-                    JSONObject jObj = new JSONObject(response);
-                    Boolean error=jObj.getBoolean("status");
-                    //String approve=jObj.getString("approve");
+        if(isNetworkAvailable()==true) {
 
-                    if (!error) {
-                        JSONArray valarray=jObj.getJSONArray("result");
-                        for (int n = 0; n < valarray.length(); n++) {
-                            JSONObject searchData = valarray.getJSONObject(n);
-                            p = new Model_CompanyPostedJobs(searchData.getString(AppConfig.KEY_COMPANY_JOBNAME),
-                                    searchData.getString("jobdetails"),
-                                    searchData.getString("jobqualification"),
-                                    searchData.getString("location"),
-                                    searchData.getString("salary"),
-                                    searchData.getString("exp"));
-                            searchlist_appliedjob.add(p);
+            showDialog();
+            String approve="true";
+            String url = AppConfig.COMPANYPOSTEDJOBS+"companyname="+username
+                    +"&approve="+approve;
+
+            url=url.replaceAll(" ", "%20");
+            StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response)
+                {
+                    hideDialog();
+                    try {
+                        JSONObject jObj = new JSONObject(response);
+                        Boolean error=jObj.getBoolean("status");
+                        //String approve=jObj.getString("approve");
+
+                        if (!error) {
+                            JSONArray valarray=jObj.getJSONArray("result");
+                            for (int n = 0; n < valarray.length(); n++) {
+                                JSONObject searchData = valarray.getJSONObject(n);
+                                p = new Model_CompanyPostedJobs(searchData.getString(AppConfig.KEY_COMPANY_JOBNAME),
+                                        searchData.getString("jobdetails"),
+                                        searchData.getString("jobqualification"),
+                                        searchData.getString("location"),
+                                        searchData.getString("salary"),
+                                        searchData.getString("exp"),
+                                        searchData.getString("status"),
+                                searchData.getString(("companyname")));
+                                searchlist_appliedjob.add(p);
+                            }
+                            adapter = new CompanyPostedAdapter(CompanyPostedjobslist.this, R.layout.customcompanyposted, searchlist_appliedjob);
+                            listview.setAdapter(adapter);
                         }
-                        adapter = new CompanyPostedAdapter(CompanyPostedjobslist.this, R.layout.customcompanyposted, searchlist_appliedjob);
-                        listview.setAdapter(adapter);
-                    }
-                    else
-                    {
-                        String errorMsg = jObj.getString("error_msg");
+                        else
+                        {
+                            String errorMsg = jObj.getString("error_msg");
 
 /* Toast.makeText(getContext(),errorMsg,Toast.LENGTH_LONG).show();*/
-                        final AlertDialog.Builder builder1 = new AlertDialog.Builder(CompanyPostedjobslist.this);
-                        builder1.setMessage( errorMsg );
-                        builder1.setCancelable(false);
+                            final AlertDialog.Builder builder1 = new AlertDialog.Builder(CompanyPostedjobslist.this);
+                            builder1.setMessage( errorMsg );
+                            builder1.setCancelable(false);
+                            builder1.setNeutralButton("OK", new DialogInterface.OnClickListener()
+                            {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which)
+                                {
+                                    hideDialog();
+                                    Intent intent= new Intent(CompanyPostedjobslist.this,Company_Base.class);
+                                    startActivity(intent);
+                                }
+                            });
+                            builder1.show();
+                            // finish();
+                        }
+                    } catch (JSONException e) {  e.printStackTrace();  }
+                }
+            },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            hideDialog();
+                            Toast.makeText(getApplicationContext(),error.getMessage().toString(),Toast.LENGTH_LONG).show();
+                        }
+                    });
+            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+            // Toast.makeText(getApplicationContext(),"sorry server is down",Toast.LENGTH_LONG).show();
+            requestQueue.add(stringRequest);
+
+
+        } else {Toast.makeText(getApplicationContext(),
+                "Please check the Internet Connection!", Toast.LENGTH_LONG)
+                .show();}
+
+
+    }
+
+    private void registerUser(final String jobname, final String jobdetails, final String jobqualification, final String companyname,
+                              final String salary, final String location, final String experiencevalue) {
+        //   , final String highereducation, final String highereducation1
+        // Tag used to cancel the request
+        String tag_string_req = "req_register";
+        String s=jobname;
+        String s1=jobdetails;
+        String s2=jobqualification;
+        String s3=companyname;
+        String s4=salary;
+        String s5=location;
+        String s6=experiencevalue;
+//        String s7=totalexp;
+
+
+        pDialog.setMessage("Updating ...");
+        showDialog();
+
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                AppConfig.URL_UPDATECOMPANYPOST, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, "Register Response: " + response.toString());
+                hideDialog();
+
+                try {
+                    JSONObject jObj = null;
+                    try {
+                        jObj = new JSONObject(response);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    boolean error = jObj.getBoolean("error");
+                    if (!error) {
+                        // User successfully stored in MySQL
+                        // Now store the user in sqlite
+//                        String uid = jObj.getString("uid");
+//
+//                        JSONObject user = jObj.getJSONObject("user");
+//                        String name = user.getString("name");
+//                        String email = user.getString("email");
+//                        String created_at = user
+//                                .getString("created_at");
+
+                        // Inserting row in users table
+                        //db.addUser(name, email, uid, created_at);
+
+                        AlertDialog.Builder builder1 = new AlertDialog.Builder(CompanyPostedjobslist.this);
+                        builder1.setMessage( "Thanks for Updating job.");
                         builder1.setNeutralButton("OK", new DialogInterface.OnClickListener()
                         {
                             @Override
                             public void onClick(DialogInterface dialog, int which)
                             {
-                                hideDialog();
                                 Intent intent= new Intent(CompanyPostedjobslist.this,Company_Base.class);
                                 startActivity(intent);
                             }
                         });
                         builder1.show();
-                        // finish();
+                    } else {
+
+                        String errorMsg = jObj.getString("error_msg");
+                        final String valueserver=jObj.getString("value");
+                        AlertDialog.Builder builder1 = new AlertDialog.Builder(getApplicationContext());
+                        builder1.setMessage(errorMsg);
+                        builder1.setNeutralButton("OK", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+                                Toast.makeText(getApplicationContext(),"Please try again!!!",Toast.LENGTH_SHORT).show();
+                            }
+                        }); builder1.show();
                     }
-                } catch (JSONException e) {  e.printStackTrace();  }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
             }
-        },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        hideDialog();
-                        Toast.makeText(getApplicationContext(),error.getMessage().toString(),Toast.LENGTH_LONG).show();
-                    }
-                });
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        // Toast.makeText(getApplicationContext(),"sorry server is down",Toast.LENGTH_LONG).show();
-        requestQueue.add(stringRequest);
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Registration Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext().getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                // hideDialog();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting params to register url
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("jobname", jobname);
+                params.put("jobdetails",jobdetails);
+                params.put("jobqualification",jobqualification);
+                params.put("companyname",companyname);
+                params.put("salary",salary);
+                params.put("location",location);
+                params.put("status",experiencevalue);
+               // params.put("totalexp",totalexp);
+                return params;
+            }
+
+        };
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+        //finish();
     }
 
     private void showDialog() {
@@ -527,4 +695,13 @@ public class CompanyPostedjobslist extends AppCompatActivity {
         }
     }
 
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
 }
+
+

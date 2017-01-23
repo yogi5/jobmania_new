@@ -93,7 +93,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="If you are a New User,then please Register"
+        android:text="If you are a New User, then please Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/buttonforgotpassword"

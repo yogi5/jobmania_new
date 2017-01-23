@@ -10,12 +10,27 @@
         android:paddingBottom="5dp"
         android:id="@+id/relative_preview"
         xmlns:android="http://schemas.android.com/apk/res/android">
-        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+        <com.youngindia.jobportal.fonts.Roboto_Regular_Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_height"
+            android:id="@+id/btn_nxt"
+            android:text="OK"
+            android:textSize="@dimen/btn_txtsize"
+            android:background="@drawable/btnshape"
+            android:textColor="@color/btn_textColor"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center_horizontal|bottom" />
+
+        <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:padding="16dp"
-            android:layout_above="@+id/btn_nxt"
-            android:background="@color/backgd_light_blue">
+            android:background="@color/backgd_light_blue"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
             <RelativeLayout
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
@@ -110,7 +125,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Fresher"
-                        android:checked="true"
                         android:contextClickable="true"
                         android:layout_weight="1"
                         android:id="@+id/radioButton_fresher"/>
@@ -244,8 +258,9 @@
                     android:layout_height="wrap_content">
                     <EditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:id="@+id/lin1"
+                        android:textSize="14sp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
                         android:singleLine="true"
@@ -285,35 +300,55 @@
                     android:orientation="horizontal"
                     android:layout_below="@+id/tv_salary"
                     android:weightSum="2">
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_weight="1"
-                        android:background="@drawable/spinner_shape">
-                        <Spinner
-                            android:id="@+id/salaryyear"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:entries="@array/salary">
-                        </Spinner>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_weight="1"
-                        android:background="@drawable/spinner_shape">
-                        <Spinner
-                            android:id="@+id/salaryyear1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:entries="@array/salary1">
-                        </Spinner>
-                    </LinearLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/salary"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/tv_location"
+                        android:layout_height="match_parent">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:id="@+id/salaryedit"
+                            android:textSize="14sp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="@dimen/mrgin_btwn_edtText"
+                            android:singleLine="true"
+                            android:layout_below="@+id/input_layout_joblocation"
+                            android:background="@color/color_transparent">
+                        </EditText>
+                    </android.support.design.widget.TextInputLayout>
+                    <!--<LinearLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="@drawable/spinner_shape">-->
+                    <!--<Spinner-->
+                    <!--android:id="@+id/salaryyear"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:entries="@array/salary">-->
+                    <!--</Spinner>-->
+                    <!--</LinearLayout>-->
+                    <!--<LinearLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="@drawable/spinner_shape">-->
+                    <!--<Spinner-->
+                    <!--android:id="@+id/salaryyear1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:entries="@array/salary1">-->
+                    <!--</Spinner>-->
+                    <!--</LinearLayout>-->
+
                 </LinearLayout>
+
                 <!--<com.youngindia.jobportal.fonts.Roboto_Regular-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
@@ -427,16 +462,5 @@
                  </LinearLayout>-->
             </RelativeLayout>
         </ScrollView>
-        <com.youngindia.jobportal.fonts.Roboto_Regular_Button
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/btn_height"
-            android:id="@+id/btn_nxt"
-            android:text="OK"
-            android:textSize="@dimen/btn_txtsize"
-            android:background="@drawable/btnshape"
-            android:textColor="@color/btn_textColor"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="center_horizontal|bottom" />
     </RelativeLayout>
 </FrameLayout>
